@@ -1,381 +1,101 @@
-<p style="text-align: center;"><img class="img-fluid"
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0mqSBlRXxYb1v9GWIJd2kcZH7CfXcJ3avIt45JVMaLA&amp;s=10"
-    alt="Angular se renueva: las mejoras de la versión 21 que debes conocer - WATA Factory"
-    width="483" height="151"></p>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angular | Material de aprendizaje</title>
+  <link rel="stylesheet" href="Angular.css">
+</head>
+<body>
+  <header class="course-banner">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0mqSBlRXxYb1v9GWIJd2kcZH7CfXcJ3avIt45JVMaLA&amp;s=10"
+      alt="Angular se renueva: las mejoras de la versión 21 que debes conocer - WATA Factory"
+      width="483" height="151">
+  </header>
 
-<div
-  style="max-width: 800px !important; width: 100% !important; margin: 20px auto !important; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important; background-color: #ffffff !important; padding: 30px !important; border-radius: 10px !important; box-shadow: 0 4px 10px rgba(0,0,0,0.08) !important; border: 1px solid #e0e0e0 !important; box-sizing: border-box !important;">
-  <div
-    style="display: flex !important; flex-direction: column !important; gap: 15px !important;">
-    <!-- Botón Principal 2 --> <a
-      style="display: block !important; padding: 15px 20px !important; background-color: #3498db !important; color: #ffffff !important; text-decoration: none !important; border-radius: 6px !important; font-size: 16px !important; font-weight: 500 !important; text-align: left !important; box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;"
-      rel="noopener"> Conceptos principales </a>
-    <!-- Sub-botones (identados) -->
-    <div
-      style="margin-left: 20px !important; display: flex !important; flex-direction: column !important; gap: 10px !important; border-left: 3px solid #bdc3c7 !important; padding-left: 15px !important;">
-      <a style="display: block !important; padding: 12px 18px !important; background-color: #ecf0f1 !important; color: #2980b9 !important; text-decoration: none !important; border-radius: 6px !important; font-size: 15px !important; font-weight: 500 !important;"
-        href="https://gamma.app/docs/Clases-en-JavaScript-r7q00kem8wko22m"
-        target="_blank" rel="noopener"> • 🔗 JavaScript </a> <a
-        style="display: block !important; padding: 12px 18px !important; background-color: #ecf0f1 !important; color: #2980b9 !important; text-decoration: none !important; border-radius: 6px !important; font-size: 15px !important; font-weight: 500 !important;"
-        href="https://gamma.app/docs/UD2-TypeScript-pss789bf221d586"
-        target="_blank" rel="noopener"> • 🔗 TypeScript </a></div>
-  </div>
-  <div
-    style="display: flex !important; flex-direction: column !important; gap: 15px !important;">
-    <a style="display: block !important; padding: 15px 20px !important; background-color: #3498db !important; color: #ffffff !important; text-decoration: none !important; border-radius: 6px !important; font-size: 16px !important; font-weight: 500 !important; text-align: left !important; box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;"
-      rel="noopener"> Angular </a>
-    <div
-      style="margin-left: 20px !important; display: flex !important; flex-direction: column !important; gap: 10px !important; border-left: 3px solid #bdc3c7 !important; padding-left: 15px !important;">
-      <a style="display: block !important; padding: 12px 18px !important; background-color: #ecf0f1 !important; color: #2980b9 !important; text-decoration: none !important; border-radius: 6px !important; font-size: 15px !important; font-weight: 500 !important;"
-        href="https://gamma.app/docs/UD2-Angular-uplt1c8ml42oofq"
-        target="_blank" rel="noopener"> • 🔗 Introducción, preparación de
-        entorno, primer proyecto y estructura de proyecto </a></div>
-  </div>
-</div>
-
-
-
-<div
-  style="width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif !important; background-color: #f8fafc !important; padding: 24px !important; border-radius: 12px !important; border: 1px solid #e2e8f0 !important; color: #1e293b !important; margin: 0 0 20px 0 !important;">
-  <!-- Encabezado -->
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background: linear-gradient(135deg, #dd0031 0%, #c3002f 100%) !important; color: #ffffff !important; padding: 20px 24px !important; border-radius: 8px !important; margin-bottom: 24px !important; box-shadow: 0 4px 6px -1px rgba(221, 0, 49, 0.2) !important;">
-    <h1
-      style="margin: 0 !important; font-size: 26px !important; font-weight: 700 !important; color: #ffffff !important; line-height: 1.2 !important; border: none !important; padding: 0 !important;">
-      Componentes en Angular</h1>
-  </div>
-  <!-- Lista de componentes -->
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; display: flex !important; flex-direction: column !important; gap: 12px !important; margin-bottom: 24px !important;">
-    <!-- Item 1 -->
-    <div
-      style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-      <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-        href="https://angular.dev/tutorials/learn-angular/1-components-in-angular"
-        target="_blank" rel="noopener noreferrer">- 🔗Componente básico</a>
-    </div>
-    <!-- Item 2 -->
-    <div
-      style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-      <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-        href="https://angular.dev/tutorials/learn-angular/2-updating-the-component-class"
-        target="_blank" rel="noopener noreferrer">- 🔗Vinculación de
-        atributos</a></div>
-    <!-- Item 3 -->
-    <div
-      style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-      <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-        href="https://angular.dev/tutorials/learn-angular/3-composing-components"
-        target="_blank" rel="noopener noreferrer">- 🔗Uso de componente</a>
-    </div>
-    <!-- Item 4 -->
-    <div
-      style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-      <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-        href="https://angular.dev/tutorials/learn-angular/4-control-flow-if"
-        target="_blank" rel="noopener noreferrer">- 🔗Flujo de control - If</a>
-    </div>
-    <!-- Item 5 -->
-    <div
-      style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-      <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-        href="https://angular.dev/tutorials/learn-angular/5-control-flow-for"
-        target="_blank" rel="noopener noreferrer">- 🔗Flujo de control - For</a>
-    </div>
-    <!-- Item 6 -->
-    <div
-      style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-      <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-        href="https://angular.dev/tutorials/learn-angular/6-property-binding"
-        target="_blank" rel="noopener noreferrer">- 🔗Enlace de propiedades</a>
-    </div>
-    <!-- Item 7 -->
-    <div
-      style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-      <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-        href="https://angular.dev/tutorials/learn-angular/7-event-handling"
-        target="_blank" rel="noopener noreferrer">- 🔗Eventos</a></div>
-    <!-- Item 8 -->
-    <div
-      style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-      <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-        href="https://angular.dev/tutorials/learn-angular/8-input"
-        target="_blank" rel="noopener noreferrer">- 🔗Propiedades de entrada</a>
-    </div>
-    <!-- Item 9 -->
-    <div
-      style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-      <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-        href="https://angular.dev/tutorials/learn-angular/9-output"
-        target="_blank" rel="noopener noreferrer">- 🔗Propiedades de salida</a>
-    </div>
-    <!-- Item 10 con contenido extendido -->
-    <div
-      style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 20px !important;">
-      <div style="margin-bottom: 16px !important;"><a
-          style="color: #0f172a !important; text-decoration: none !important; font-size: 18px !important; font-weight: 700 !important;"
-          href="https://angular.dev/tutorials/learn-angular/10-deferrable-views"
-          target="_blank" rel="noopener noreferrer">- 🔗Vista diferida</a></div>
-      <!-- Bloques de descripción de Vista diferida -->
-      <div
-        style="width: 100% !important; box-sizing: border-box !important; display: flex !important; flex-direction: column !important; gap: 8px !important; margin-bottom: 20px !important;">
-        <div
-          style="background-color: #f1f5f9 !important; padding: 10px 14px !important; border-radius: 6px !important; font-size: 14px !important; color: #334155 !important;">
-          <strong
-            style="color: #0f172a !important; font-weight: 700 !important;">@defer</strong>:
-          Contiene los elementos que se descargarán diferidos.</div>
-        <div
-          style="background-color: #f1f5f9 !important; padding: 10px 14px !important; border-radius: 6px !important; font-size: 14px !important; color: #334155 !important;">
-          <strong
-            style="color: #0f172a !important; font-weight: 700 !important;">@-
-            pl aceholder</strong>: Lo que se muestra en pantalla <strong
-            style="color: #0f172a !important; font-weight: 700 !important;">antes</strong>
-          de que comience la carga.</div>
-        <div
-          style="background-color: #f1f5f9 !important; padding: 10px 14px !important; border-radius: 6px !important; font-size: 14px !important; color: #334155 !important;">
-          <strong
-            style="color: #0f172a !important; font-weight: 700 !important;">@loading</strong>:
-          Lo que se muestra <strong
-            style="color: #0f172a !important; font-weight: 700 !important;">mientras</strong>
-          se descargan los recursos (soporta parámetros como minimum 1s para
-          evitar parpadeos).</div>
-        <div
-          style="background-color: #f1f5f9 !important; padding: 10px 14px !important; border-radius: 6px !important; font-size: 14px !important; color: #334155 !important;">
-          <strong
-            style="color: #0f172a !important; font-weight: 700 !important;">@error</strong>:
-          Se muestra si ocurre un fallo de red o error al descargar el bundle.
-        </div>
+  <nav class="course-nav" aria-label="Material del curso">
+    <section class="nav-group" aria-labelledby="nav-conceptos">
+      <h2 class="nav-heading" id="nav-conceptos">Conceptos principales</h2>
+      <div class="nav-subitems">
+        <a class="nav-link" href="https://gamma.app/docs/Clases-en-JavaScript-r7q00kem8wko22m" target="_blank" rel="noopener">🔗 JavaScript</a>
+        <a class="nav-link" href="https://gamma.app/docs/UD2-TypeScript-pss789bf221d586" target="_blank" rel="noopener">🔗 TypeScript</a>
       </div>
-      <!-- Seccion Disparadores -->
-      <div
-        style="width: 100% !important; box-sizing: border-box !important; border-top: 1px solid #e2e8f0 !important; padding-top: 16px !important; margin-top: 16px !important;">
-        <h2
-          style="font-size: 16px !important; font-weight: 700 !important; color: #0f172a !important; margin: 0 0 8px 0 !important; border: none !important; padding: 0 !important;">
-          <strong style="font-weight: 700 !important;">Disparadores (<em
-              style="font-style: italic !important;">Triggers</em>)</strong>
-        </h2>
-        <p
-          style="font-size: 14px !important; color: #475569 !important; margin: 0 0 16px 0 !important; line-height: 1.5 !important;">
-          Puedes especificar cuándo debe activarse la carga perezosa mediante
-          los modificadores on o when:</p>
-        <!-- Tabla de disparadores -->
-        <div
-          style="width: 100% !important; overflow-x: auto !important; box-sizing: border-box !important;">
-          <table
-            style="width: 100% !important; border-collapse: collapse !important; text-align: left !important; font-size: 14px !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-radius: 6px !important;">
-            <thead>
-              <tr
-                style="background-color: #e2e8f0 !important; color: #0f172a !important;">
-                <th
-                  style="padding: 12px 14px !important; border-bottom: 2px solid #cbd5e1 !important; font-weight: 700 !important;">
-                  <strong
-                    style="font-weight: 700 !important;">Disparador</strong>
-                </th>
-                <th
-                  style="padding: 12px 14px !important; border-bottom: 2px solid #cbd5e1 !important; font-weight: 700 !important;">
-                  <strong style="font-weight: 700 !important;">Ejemplo</strong>
-                </th>
-                <th
-                  style="padding: 12px 14px !important; border-bottom: 2px solid #cbd5e1 !important; font-weight: 700 !important;">
-                  <strong
-                    style="font-weight: 700 !important;">Descripción</strong>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr style="border-bottom: 1px solid #e2e8f0 !important;">
-                <td
-                  style="padding: 12px 14px !important; color: #0f172a !important;">
-                  <strong style="font-weight: 700 !important;">idle</strong> <em
-                    style="font-style: italic !important;">(Por defecto)</em>
-                </td>
-                <td
-                  style="padding: 12px 14px !important; font-family: monospace !important; color: #d97706 !important;">
-                  @defer (on idle)</td>
-                <td
-                  style="padding: 12px 14px !important; color: #334155 !important;">
-                  Se descarga cuando el navegador esté libre después de la carga
-                  inicial.</td>
-              </tr>
-              <tr
-                style="border-bottom: 1px solid #e2e8f0 !important; background-color: #f8fafc !important;">
-                <td
-                  style="padding: 12px 14px !important; color: #0f172a !important;">
-                  <strong style="font-weight: 700 !important;">viewport</strong>
-                </td>
-                <td
-                  style="padding: 12px 14px !important; font-family: monospace !important; color: #d97706 !important;">
-                  @defer (on viewport)</td>
-                <td
-                  style="padding: 12px 14px !important; color: #334155 !important;">
-                  Se descarga cuando el elemento (o un placeholder) entra en la
-                  pantalla (<em
-                    style="font-style: italic !important;">scroll</em>).</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #e2e8f0 !important;">
-                <td
-                  style="padding: 12px 14px !important; color: #0f172a !important;">
-                  <strong
-                    style="font-weight: 700 !important;">interaction</strong>
-                </td>
-                <td
-                  style="padding: 12px 14px !important; font-family: monospace !important; color: #d97706 !important;">
-                  @defer (on interaction)</td>
-                <td
-                  style="padding: 12px 14px !important; color: #334155 !important;">
-                  Se descarga al hacer clic o interactuar con un elemento.</td>
-              </tr>
-              <tr
-                style="border-bottom: 1px solid #e2e8f0 !important; background-color: #f8fafc !important;">
-                <td
-                  style="padding: 12px 14px !important; color: #0f172a !important;">
-                  <strong style="font-weight: 700 !important;">hover</strong>
-                </td>
-                <td
-                  style="padding: 12px 14px !important; font-family: monospace !important; color: #d97706 !important;">
-                  @defer (on hover)</td>
-                <td
-                  style="padding: 12px 14px !important; color: #334155 !important;">
-                  Se descarga al pasar el cursor por encima del área o
-                  placeholder.</td>
-              </tr>
-              <tr style="border-bottom: 1px solid #e2e8f0 !important;">
-                <td
-                  style="padding: 12px 14px !important; color: #0f172a !important;">
-                  <strong style="font-weight: 700 !important;">timer</strong>
-                </td>
-                <td
-                  style="padding: 12px 14px !important; font-family: monospace !important; color: #d97706 !important;">
-                  @defer (on timer(5s))</td>
-                <td
-                  style="padding: 12px 14px !important; color: #334155 !important;">
-                  Se descarga tras transcurrir un tiempo determinado.</td>
-              </tr>
-              <tr>
-                <td
-                  style="padding: 12px 14px !important; color: #0f172a !important;">
-                  <strong style="font-weight: 700 !important;">when</strong>
-                </td>
-                <td
-                  style="padding: 12px 14px !important; font-family: monospace !important; color: #d97706 !important;">
-                  @defer (when esVisible)</td>
-                <td
-                  style="padding: 12px 14px !important; color: #334155 !important;">
-                  Se descarga cuando una condición booleana del TypeScript sea
-                  true.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+    </section>
+    <section class="nav-group" aria-labelledby="nav-angular">
+      <h2 class="nav-heading" id="nav-angular">Introducción a Angular</h2>
+      <div class="nav-subitems">
+        <a class="nav-link" href="https://gamma.app/docs/UD2-Angular-uplt1c8ml42oofq" target="_blank" rel="noopener">🔗 Introducción, preparación de entorno, primer proyecto y estructura de proyecto</a>
       </div>
+    </section>
+  </nav>
+
+  <main class="learning-section">
+    <header class="section-header">
+      <h1>Componentes en Angular</h1>
+    </header>
+
+    <div class="lesson-list">
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/1-components-in-angular" target="_blank" rel="noopener noreferrer">🔗 Componente básico</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/2-updating-the-component-class" target="_blank" rel="noopener noreferrer">🔗 Vinculación de atributos</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/3-composing-components" target="_blank" rel="noopener noreferrer">🔗 Uso de componente</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/4-control-flow-if" target="_blank" rel="noopener noreferrer">🔗 Flujo de control - If</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/5-control-flow-for" target="_blank" rel="noopener noreferrer">🔗 Flujo de control - For</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/6-property-binding" target="_blank" rel="noopener noreferrer">🔗 Enlace de propiedades</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/7-event-handling" target="_blank" rel="noopener noreferrer">🔗 Eventos</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/8-input" target="_blank" rel="noopener noreferrer">🔗 Propiedades de entrada</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/9-output" target="_blank" rel="noopener noreferrer">🔗 Propiedades de salida</a></article>
+
+      <article class="lesson-card lesson-card--detail">
+        <a class="lesson-link lesson-link--featured" href="https://angular.dev/tutorials/learn-angular/10-deferrable-views" target="_blank" rel="noopener noreferrer">🔗 Vista diferida</a>
+        <div class="defer-notes">
+          <p><strong>@defer</strong>: Contiene los elementos que se descargarán diferidos.</p>
+          <p><strong>@placeholder</strong>: Lo que se muestra en pantalla <strong>antes</strong> de que comience la carga.</p>
+          <p><strong>@loading</strong>: Lo que se muestra <strong>mientras</strong> se descargan los recursos (soporta parámetros como minimum 1s para evitar parpadeos).</p>
+          <p><strong>@error</strong>: Se muestra si ocurre un fallo de red o error al descargar el bundle.</p>
+        </div>
+        <section class="triggers" aria-labelledby="triggers-title">
+          <h2 id="triggers-title">Disparadores (<em>Triggers</em>)</h2>
+          <p>Puedes especificar cuándo debe activarse la carga perezosa mediante los modificadores on o when:</p>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr><th scope="col">Disparador</th><th scope="col">Ejemplo</th><th scope="col">Descripción</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>idle</strong> <em>(Por defecto)</em></td><td>@defer (on idle)</td><td>Se descarga cuando el navegador esté libre después de la carga inicial.</td></tr>
+                <tr><td><strong>viewport</strong></td><td>@defer (on viewport)</td><td>Se descarga cuando el elemento (o un placeholder) entra en la pantalla (<em>scroll</em>).</td></tr>
+                <tr><td><strong>interaction</strong></td><td>@defer (on interaction)</td><td>Se descarga al hacer clic o interactuar con un elemento.</td></tr>
+                <tr><td><strong>hover</strong></td><td>@defer (on hover)</td><td>Se descarga al pasar el cursor por encima del área o placeholder.</td></tr>
+                <tr><td><strong>timer</strong></td><td>@defer (on timer(5s))</td><td>Se descarga tras transcurrir un tiempo determinado.</td></tr>
+                <tr><td><strong>when</strong></td><td>@defer (when esVisible)</td><td>Se descarga cuando una condición booleana del TypeScript sea true.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </article>
+
+      <article class="lesson-card"><a class="lesson-link" href="https://gamma.app/docs/NgOptimizedImage-cu51xik9gjy847p" target="_blank" rel="noopener noreferrer">🔗 NgOptimizedImage</a></article>
+
+      <h2 class="topic-heading">🧩 Enrutamiento</h2>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/12-enable-routing" target="_blank" rel="noopener noreferrer">🔗 Habilitar enrutamiento</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/13-define-a-route" target="_blank" rel="noopener noreferrer">🔗 Definir una ruta</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/14-routerLink" target="_blank" rel="noopener noreferrer">🔗 RouterLink - Navegación sin recargar</a></article>
+
+      <h2 class="topic-heading">🧩 Formularios</h2>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/15-forms" target="_blank" rel="noopener noreferrer">🔗 Descripción inicial</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/16-form-control-values" target="_blank" rel="noopener noreferrer">🔗 Obtener valor campo</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/17-reactive-forms" target="_blank" rel="noopener noreferrer">🔗 Formularios reactivos</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/18-forms-validation" target="_blank" rel="noopener noreferrer">🔗 Validación formularios</a></article>
+
+      <h2 class="topic-heading">🧩 Inyecciones</h2>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/19-creating-an-injectable-service" target="_blank" rel="noopener noreferrer">🔗 Creación de servicios</a></article>
+
+      <h2 class="topic-heading">🧩 Tuberías</h2>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/22-pipes" target="_blank" rel="noopener noreferrer">🔗 Uso de tuberías</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/guide/templates/pipes" target="_blank" rel="noopener noreferrer">🔗 Lista de tuberías</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/23-pipes-format-data" target="_blank" rel="noopener noreferrer">🔗 Formatear datos</a></article>
+      <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/learn-angular/23-pipes-format-data" target="_blank" rel="noopener noreferrer">🔗 Creación de tuberías</a></article>
     </div>
-  </div>
-  <!-- Item 11 -->
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://gamma.app/docs/NgOptimizedImage-cu51xik9gjy847p"
-      target="_blank" rel="noopener noreferrer">- 🔗NgOptimizedImage</a></div>
-  <br>
-  <div
-    style="margin-bottom: 16px !important; border-bottom: 2px solid #f1f5f9 !important; padding-bottom: 12px !important;">
-    <h3
-      style="margin: 0 !important; font-size: 18px !important; font-weight: 700 !important; color: #dd0031 !important; line-height: 1.2 !important;">
-      🧩 Enrutamiento</h3>
-  </div>
-  <!-- Item 12 -->
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://angular.dev/tutorials/learn-angular/12-enable-routing"
-      target="_blank" rel="noopener noreferrer">- 🔗Habilitar enrutamiento</a>
-  </div>
-  <!-- Item 13 -->
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://angular.dev/tutorials/learn-angular/13-define-a-route"
-      target="_blank" rel="noopener noreferrer">- 🔗Definir una ruta</a></div>
-  <!-- Item 14 -->
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://angular.dev/tutorials/learn-angular/14-routerLink"
-      target="_blank" rel="noopener noreferrer">- 🔗RouterLink - Navegación sin
-      recargar</a></div>
-  <br>
-  <div
-    style="margin-bottom: 16px !important; border-bottom: 2px solid #f1f5f9 !important; padding-bottom: 12px !important;">
-    <h3
-      style="margin: 0 !important; font-size: 18px !important; font-weight: 700 !important; color: #dd0031 !important; line-height: 1.2 !important;">
-      🧩 Formularios</h3>
-  </div>
-  <!-- Item 12 -->
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://angular.dev/tutorials/learn-angular/15-forms"
-      target="_blank" rel="noopener noreferrer">- 🔗Descripción inicial</a>
-  </div>
-  <!-- Item 13 -->
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://angular.dev/tutorials/learn-angular/16-form-control-values"
-      target="_blank" rel="noopener noreferrer">- 🔗Obtener valor campo</a>
-  </div>
-  <!-- Item 14 -->
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://angular.dev/tutorials/learn-angular/17-reactive-forms"
-      target="_blank" rel="noopener noreferrer">- 🔗Formularios reactivos</a>
-  </div>
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://angular.dev/tutorials/learn-angular/18-forms-validation"
-      target="_blank" rel="noopener noreferrer">- 🔗Validación formularios</a>
-  </div>
-  <br>
-  <div
-    style="margin-bottom: 16px !important; border-bottom: 2px solid #f1f5f9 !important; padding-bottom: 12px !important;">
-    <h3
-      style="margin: 0 !important; font-size: 18px !important; font-weight: 700 !important; color: #dd0031 !important; line-height: 1.2 !important;">
-      🧩 Inyecciones</h3>
-  </div>
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://angular.dev/tutorials/learn-angular/19-creating-an-injectable-service"
-      target="_blank" rel="noopener noreferrer">- 🔗Creación de servicios</a>
-  </div>
-  <br>
-  <div
-    style="margin-bottom: 16px !important; border-bottom: 2px solid #f1f5f9 !important; padding-bottom: 12px !important;">
-    <h3
-      style="margin: 0 !important; font-size: 18px !important; font-weight: 700 !important; color: #dd0031 !important; line-height: 1.2 !important;">
-      🧩 Tuberías</h3>
-  </div>
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://angular.dev/tutorials/learn-angular/22-pipes"
-      target="_blank" rel="noopener noreferrer">- 🔗Uso de tuberías</a></div>
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://angular.dev/guide/templates/pipes" target="_blank"
-      rel="noopener noreferrer">- 🔗Lista de tuberías</a></div>
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://angular.dev/tutorials/learn-angular/23-pipes-format-data"
-      target="_blank" rel="noopener noreferrer">- 🔗Formatear datos</a></div>
-  <div
-    style="width: 100% !important; box-sizing: border-box !important; background-color: #ffffff !important; border: 1px solid #cbd5e1 !important; border-left: 5px solid #dd0031 !important; border-radius: 6px !important; padding: 14px 18px !important;">
-    <a style="color: #0f172a !important; text-decoration: none !important; font-size: 16px !important; font-weight: 600 !important;"
-      href="https://angular.dev/tutorials/learn-angular/23-pipes-format-data"
-      target="_blank" rel="noopener noreferrer">- 🔗Creación de tuberías</a>
-  </div>
-</div>
+  </main>
+</body>
+</html>
