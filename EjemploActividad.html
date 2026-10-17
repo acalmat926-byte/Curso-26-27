@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enunciado de la Actividad</title>
+  <script src="js/html-docx.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+    .btn-download {
+      background-color: #2b579a; color: white; padding: 10px 18px;
+      border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-bottom: 20px;
+    }
+    .btn-download:hover { background-color: #1e3c6e; }
+  </style>
+</head>
+<body>
+
+  <button id="btnDescargar" class="btn-download">📄 Descargar enunciado en Word</button>
+
+  <div id="enunciado">
+    <h1>Actividad 1: Introducción a HTML</h1>
+    <p><strong>Curso:</strong> 2026-2027</p>
+    <hr>
+    <h2>Instrucciones</h2>
+    <p>Lee detenidamente las siguientes preguntas y responde en un documento aparte:</p>
+    <ul>
+      <li>Crea una estructura básica de documento HTML5.</li>
+      <li>Añade un encabezado <code>&lt;h1&gt;</code> con el título de tu proyecto.</li>
+      <li>Incluye una lista desordenada con tres tecnologías web.</li>
+    </ul>
+  </div>
+
+  <script>
+    function guardar(blob, nombre) {
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = nombre;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    document.getElementById('btnDescargar').addEventListener('click', function () {
+      // Construimos un documento HTML completo sin escribir etiquetas en cadenas
+      var doc = document.implementation.createHTMLDocument('Enunciado');
+      var meta = doc.createElement('meta');
+      meta.setAttribute('charset', 'UTF-8');
+      doc.head.appendChild(meta);
+      doc.body.innerHTML = document.getElementById('enunciado').innerHTML;
+
+      var html = '<!DOCTYPE html>' + doc.documentElement.outerHTML;
+
+      if (typeof htmlDocx !== 'undefined') {
+        guardar(htmlDocx.asBlob(html), 'Enunciado_Actividad_1.docx');
+      } else {
+        // Plan B sin librería: Word abre este archivo directamente
+        guardar(new Blob(['\ufeff' + html], { type: 'application/msword' }), 'Enunciado_Actividad_1.doc');
+      }
+    });
+  </script>
+
+</body>
+</html>
