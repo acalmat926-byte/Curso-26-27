@@ -115,7 +115,8 @@ vagrant destroy
 
 ```
 
-> [!INFO] ACTIVIDAD 1
+> [!INFO] 
+> **ACTIVIDAD 1**
 
 ## Recurso: Scripts de Aprovisionamiento
 
