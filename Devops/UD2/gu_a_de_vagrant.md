@@ -97,23 +97,6 @@ vagrant up
 vagrant destroy
 
 ```
-### Ejemplo 2 - Máquina configurada PHP
-```bash
-mkdir Prueba3
-cd Prueba1
-vagrant init ubuntu/trusty64
-# Arranca la máquina virtual - Podemos acceder a la máquina virtual
-vagrant up
-# Entramos en la máquina por ssh
-vagrant ssh
-#EJEMPLO 2
-cd ../Prueba2
-vagrant init ubuntu/trusty64
-vagrant up
-.........
-vagrant destroy
-
-```
 
 > [!IMPORTANT] 
 > **ACTIVIDAD 1**
