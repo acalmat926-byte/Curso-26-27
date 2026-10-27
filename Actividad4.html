@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Actividad 4: Ampliación del Catálogo Interactivo</title>
+  <link rel="stylesheet" href="Actividad4.css">
+  <script src="js/html-docx.js" defer></script>
+  <script src="Actividad4.js" defer></script>
+</head>
+<body>
+  <button id="btnDescargar" type="button">Descargar en Word</button>
+
+  <main id="enunciado">
+    <h1>Actividad 4: Ampliación del Catálogo Interactivo (Enrutamiento, Formularios Reactivos y Optimización)</h1>
+    <p>Esta actividad práctica constituye la continuación directa de la Actividad 3: Catálogo Interactivo de Productos (Tech Store). En esta fase, la aplicación evoluciona desde una vista única hacia una Single Page Application (SPA) modular, optimizada y capaz de administrar datos mediante formularios reactivos avanzados.</p>
+
+    <h2>1. Arquitectura de Componentes y Sistema de Rutas</h2>
+    <p>La aplicación pasa de contar con un único contenedor principal a estructurarse mediante un árbol de rutas coordinado por AppComponent:</p>
+    <p>AppComponent (Contenedor principal con Navbar y &lt;router-outlet&gt;)<br>
+      ├── NavbarComponent<br>
+      └── Rutas (app.routes.ts):<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;├── '/productos' ----------&gt; ProductListComponent (Listado con ProductSearchComponent y ProductCardComponent)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;├── '/producto/:id' -------&gt; ProductDetailComponent (Detalle del producto + ProductReviewsComponent con @defer)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;├── '/nuevo-producto' -----&gt; ProductFormComponent (Formulario Reactivo de alta)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;└── '**' ------------------&gt; Redirección automática a '/productos'</p>
+
+    <p>2. Guía Paso a Paso para la Realización</p>
+
+    <h3>Paso 1: Optimización de Imágenes con NgOptimizedImage</h3>
+    <ol>
+      <li>Sustituir las etiquetas de imagen tradicionales por la directiva NgOptimizedImage (atributo ngSrc) en tarjetas y detalles, estableciendo dimensiones explícitas o la propiedad fill.</li>
+    </ol>
+
+    <h3>Paso 2: Configuración del Enrutamiento y Navegación SPA</h3>
+    <p>Sigue los siguientes pasos para estructurar la navegación interna:</p>
+    <ol>
+      <li>Habilitación de Enrutamiento
+        <p>Configurar el proveedor global de rutas mediante provideRouter(routes) dentro del archivo de configuración principal de la aplicación.</p>
+      </li>
+      <li>Definición de Rutas
+        <p>Definir rutas estáticas (/productos, /nuevo-producto) y dinámicas (/producto/:id), además del manejo de rutas no encontradas mediante comodín (**).</p>
+      </li>
+      <li>Navegación SPA (RouterLink)
+        <p>Implementar routerLink para la navegación sin recargas e integrar routerLinkActive para destacar la pestaña o enlace activo en la interfaz de usuario.</p>
+      </li>
+    </ol>
+
+    <h3>Paso 3: Vista de Detalle y Parámetros Dinámicos (/producto/:id)</h3>
+    <p>Para consultar la información extendida de cada producto:</p>
+    <ol>
+      <li>En ProductCardComponent, añade un botón o enlace con navegación parametrizada</li>
+      <li>En ProductDetailComponent, recupera el parámetro :id de la URL para buscar el producto coincidente en el servicio o estado.</li>
+      <li>Integra el bloque diferido ProductReviewsComponent.</li>
+    </ol>
+
+    <h3>Paso 4: Formulario Reactivo con Validaciones (ProductFormComponent)</h3>
+    <p>Permite la adición de nuevos productos mediante una interfaz segura y validada:</p>
+    <ol>
+      <li>Crea el componente ProductFormComponent.</li>
+      <li>Configura el formulario en la clase TypeScript con sus validadores correspondientes:</li>
+      <li>nombre: mínimo 3 carácteres</li>
+      <li>price: mínimo 0.01</li>
+      <li>category</li>
+      <li>imageUrl</li>
+      <li>inStock</li>
+      <li>Despliega avisos de error dinámicos utilizando la sintaxis de flujo de control @if cuando el campo no cumpla las condiciones y haya sido tocado por el usuario (touched).</li>
+      <li>En el método onSubmit(), comprueba si el formulario es válido, agrega el nuevo registro al listado global de productos, limpia los camposy redirige al catálogo a la lista de productos.</li>
+    </ol>
+
+    <h3>Paso 5: Añade Menú</h3>
+    <p>Crea NavbarComponent con menú hacia todas las opciones, tiene que verse en todas las pantallas.</p>
+  </main>
+</body>
+</html>
