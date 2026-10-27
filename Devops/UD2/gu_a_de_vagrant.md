@@ -1,18 +1,5 @@
 > **Autoría:** Alejandro Calvo Mateos
 
-# Índice
-
-- [UD2 - Gestión de Entornos Virtuales con Vagrant](#gestión-de-entornos-virtuales-con-vagrant)
-  - [Vagrant: ¿Qué es y Para Qué Sirve?](#vagrant-qué-es-y-para-qué-sirve)
-  - [Boxes de Vagrant: La Base de Todo Entorno](#boxes-de-vagrant-la-base-de-todo-entorno)
-  - [El Flujo de Trabajo Esencial de Vagrant](#el-flujo-de-trabajo-esencial-de-vagrant)
-  - [Recurso: Scripts de Aprovisionamiento](#recurso-scripts-de-aprovisionamiento)
-  - [Configuración de Redes en Vagrant](#configuración-de-redes-en-vagrant)
-
-  - [Carpetas Sincronizadas (Synced Folders) en Vagrant](#carpetas-sincronizadas-synced-folders-en-vagrant)
-  - [Tipos de Synced Folders: Comparativa Técnica](#tipos-de-synced-folders-comparativa-técnica)
-  - [Gestión de Snapshots: Protección y Recuperación](#gestión-de-snapshots-protección-y-recuperación)
-
 # UD2 - Gestión de Entornos Virtuales con Vagrant
 
 ## Vagrant: ¿Qué es y Para Qué Sirve?
