@@ -1,27 +1,17 @@
 # Índice
 
-- [Gestión de Entornos Virtuales con Vagrant](#gestión-de-entornos-virtuales-con-vagrant)
+- [UD2 - Gestión de Entornos Virtuales con Vagrant](#gestión-de-entornos-virtuales-con-vagrant)
   - [Vagrant: ¿Qué es y Para Qué Sirve?](#vagrant-qué-es-y-para-qué-sirve)
   - [Boxes de Vagrant: La Base de Todo Entorno](#boxes-de-vagrant-la-base-de-todo-entorno)
-    - [¿Qué son las Boxes?](#qué-son-las-boxes)
-    - [Gestión de Versiones y Comandos Útiles](#gestión-de-versiones-y-comandos-útiles)
   - [El Flujo de Trabajo Esencial de Vagrant](#el-flujo-de-trabajo-esencial-de-vagrant)
   - [Recurso: Scripts de Aprovisionamiento](#recurso-scripts-de-aprovisionamiento)
   - [Configuración de Redes en Vagrant](#configuración-de-redes-en-vagrant)
-    - [1. NAT (Network Address Translation)](#1-nat-network-address-translation)
-    - [2. Private Network (Host-Only)](#2-private-network-host-only)
-    - [3. Public Network (Bridged)](#3-public-network-bridged)
+
   - [Carpetas Sincronizadas (Synced Folders) en Vagrant](#carpetas-sincronizadas-synced-folders-en-vagrant)
-    - [Configuración Básica](#configuración-básica)
-    - [Parámetro `type`](#parámetro-type)
-    - [Permisos y Opciones de Montaje](#permisos-y-opciones-de-montaje)
-    - [Ejemplo de Configuración en Vagrantfile](#ejemplo-de-configuración-en-vagrantfile)
   - [Tipos de Synced Folders: Comparativa Técnica](#tipos-de-synced-folders-comparativa-técnica)
   - [Gestión de Snapshots: Protección y Recuperación](#gestión-de-snapshots-protección-y-recuperación)
-    - [Comandos de Snapshots](#comandos-de-snapshots)
-    - [Casos de Uso Prácticos](#casos-de-uso-prácticos)
 
-# Gestión de Entornos Virtuales con Vagrant
+# UD2 - Gestión de Entornos Virtuales con Vagrant
 
 ## Vagrant: ¿Qué es y Para Qué Sirve?
 
@@ -29,9 +19,26 @@
 - Facilita la **creación y gestión de entornos de desarrollo virtualizados** y portables.
 - Proporciona a los desarrolladores un entorno consistente y reproducible, eliminando el famoso problema *"funciona en mi máquina"*.
 - Permite **configurar máquinas virtuales** con la misma configuración para todo el equipo de trabajo.
-- Se debe utilizar conjuntamente con un proveedor de máquinas virtuales (VirtualBox, Docker, Hyper-V, VMware).
+- Usa Vagrant si necesitas simular un servidor o sistema operativo completo.
+- Se debe utilizar conjuntamente con un proveedor de máquinas virtuales (VirtualBox, Docker, Hyper-V, VMware). En nuestro caso lo usaremos con VirtualBox.
 
 ---
+
+## Instalación
+
+### 🔗[Instalación de Vagrant](https://developer.hashicorp.com/vagrant/install)
+
+ `vagrant -v`
+
+### 🔗[Instalación de VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+
+
+## Ayuda
+
+🔗[Vagrant Documentación](https://developer.hashicorp.com/vagrant/docs)
+
+- Ayuda en comandos
+`vagrant -h`
 
 ## Boxes de Vagrant: La Base de Todo Entorno
 
@@ -52,7 +59,7 @@
 | `vagrant box list` | Listar las boxes instaladas en tu host |
 | `vagrant box add hashicorp/bionic64` | Añadir una box al repositorio local |
 | `vagrant box remove hashicorp/bionic64` | Eliminar una box del repositorio local |
-| `vagrant box update` | Actualizar a la última versión de la box |
+
 
 ---
 
@@ -61,6 +68,7 @@
 Vagrant proporciona un ciclo de vida completo para la **gestión de máquinas virtuales mediante comandos** simples y directos:
 
 - `vagrant init`: Inicializa el proyecto creando el `Vagrantfile` con la configuración base.
+ Añadiendo la imagen `vagrant init ubuntu/trusty`
 - `vagrant up`: Levanta y aprovisiona la máquina virtual según la configuración definida.
 - `vagrant ssh`: Conecta por SSH a la máquina virtual en ejecución.
 - `vagrant provision`: Ejecuta los scripts de aprovisionamiento sin necesidad de reiniciar la VM.
@@ -70,6 +78,44 @@ Vagrant proporciona un ciclo de vida completo para la **gestión de máquinas vi
 > **Nota:** Este flujo permite una gestión eficiente del ciclo de vida completo, desde la creación inicial hasta la destrucción del entorno, garantizando reproducibilidad en cada iteración.
 
 ---
+
+### Ejemplo 1
+```bash
+mkdir Prueba1
+mkdir Prueba2
+cd Prueba1
+vagrant init ubuntu/trusty64
+# Arranca la máquina virtual - Podemos acceder a la máquina virtual
+vagrant up
+# Entramos en la máquina por ssh
+vagrant ssh
+#EJEMPLO 2
+cd ../Prueba2
+vagrant init ubuntu/trusty64
+vagrant up
+.........
+vagrant destroy
+
+```
+### Ejemplo 2 - Máquina configurada PHP
+```bash
+mkdir Prueba3
+cd Prueba1
+vagrant init ubuntu/trusty64
+# Arranca la máquina virtual - Podemos acceder a la máquina virtual
+vagrant up
+# Entramos en la máquina por ssh
+vagrant ssh
+#EJEMPLO 2
+cd ../Prueba2
+vagrant init ubuntu/trusty64
+vagrant up
+.........
+vagrant destroy
+
+```
+
+> [!INFO] ACTIVIDAD 1
 
 ## Recurso: Scripts de Aprovisionamiento
 
