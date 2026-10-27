@@ -1,3 +1,26 @@
+# Índice
+
+- [Gestión de Entornos Virtuales con Vagrant](#gestión-de-entornos-virtuales-con-vagrant)
+  - [Vagrant: ¿Qué es y Para Qué Sirve?](#vagrant-qué-es-y-para-qué-sirve)
+  - [Boxes de Vagrant: La Base de Todo Entorno](#boxes-de-vagrant-la-base-de-todo-entorno)
+    - [¿Qué son las Boxes?](#qué-son-las-boxes)
+    - [Gestión de Versiones y Comandos Útiles](#gestión-de-versiones-y-comandos-útiles)
+  - [El Flujo de Trabajo Esencial de Vagrant](#el-flujo-de-trabajo-esencial-de-vagrant)
+  - [Recurso: Scripts de Aprovisionamiento](#recurso-scripts-de-aprovisionamiento)
+  - [Configuración de Redes en Vagrant](#configuración-de-redes-en-vagrant)
+    - [1. NAT (Network Address Translation)](#1-nat-network-address-translation)
+    - [2. Private Network (Host-Only)](#2-private-network-host-only)
+    - [3. Public Network (Bridged)](#3-public-network-bridged)
+  - [Carpetas Sincronizadas (Synced Folders) en Vagrant](#carpetas-sincronizadas-synced-folders-en-vagrant)
+    - [Configuración Básica](#configuración-básica)
+    - [Parámetro `type`](#parámetro-type)
+    - [Permisos y Opciones de Montaje](#permisos-y-opciones-de-montaje)
+    - [Ejemplo de Configuración en Vagrantfile](#ejemplo-de-configuración-en-vagrantfile)
+  - [Tipos de Synced Folders: Comparativa Técnica](#tipos-de-synced-folders-comparativa-técnica)
+  - [Gestión de Snapshots: Protección y Recuperación](#gestión-de-snapshots-protección-y-recuperación)
+    - [Comandos de Snapshots](#comandos-de-snapshots)
+    - [Casos de Uso Prácticos](#casos-de-uso-prácticos)
+
 # Gestión de Entornos Virtuales con Vagrant
 
 ## Vagrant: ¿Qué es y Para Qué Sirve?
