@@ -97,6 +97,8 @@ vagrant destroy
 > 
 > 🎥 [Ver vídeo tutorial en YouTube sobre Scripts de Aprovisionamiento](https://www.youtube.com/watch?v=aLYMcwsIcwk)
 
+> [!IMPORTANT] 
+> **ACTIVIDAD 2**
 ---
 
 ## Configuración de Redes en Vagrant
@@ -127,6 +129,9 @@ Vagrant ofrece tres modos de red principales, desde aislamiento completo hasta i
   - Útil para pruebas de producción y demostraciones.
 
 🔗 *Más información sobre redes:* [Guía de configuración de redes en Vagrant](https://codigoelectronica.com/blog/configurar-redes-en-vagrant)
+
+> [!IMPORTANT] 
+> **ACTIVIDAD 3**
 
 ---
 
@@ -203,3 +208,9 @@ Los snapshots de Vagrant permiten capturar el estado completo de una máquina vi
 - **Estados de desarrollo:** Mantener snapshots de diferentes fases del proyecto para comparación o *rollback*.
 - **Testing destructivo:** Experimentar con configuraciones avanzadas sin temor a romper el entorno de trabajo.
 - **Demos y presentaciones:** Garantizar un estado limpio y funcional para demostraciones repetidas.
+
+> [!IMPORTANT] 
+> **ACTIVIDAD 4**
+
+> [!IMPORTANT] 
+> **ACTIVIDAD 5**
