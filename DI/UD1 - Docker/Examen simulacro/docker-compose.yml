@@ -1,0 +1,43 @@
+services:
+  examen_db:
+    image: mariadb
+    container_name: examen_db
+    restart: always
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: examen_db
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: clave123
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - examen_net      
+  examen_php:
+    image: phpserver
+    container_name: examen_php
+    restart: always
+    ports:
+      - "8090:80"
+    volumes:
+      - ./index.php:/var/www/html/index.php
+    environment:
+      DB_HOST: examen_db
+      DB_NAME: examen_db
+      DB_USER: usuario
+      DB_PASS: clave123
+    depends_on:
+      - examen_db
+    networks:
+      - examen_net
+
+networks:
+  examen_net:
+    driver: bridge
+    attachable: false
+    external: false
+volumes:
+  db_data:
+    driver: local
+    external: false
