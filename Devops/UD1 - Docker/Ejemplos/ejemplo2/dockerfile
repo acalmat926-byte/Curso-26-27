@@ -1,0 +1,15 @@
+FROM python:3.11-slim
+
+# Definir argumentos de construcción y variables de entorno
+ARG APP_VERSION=1.0.0
+ENV VERSION=${APP_VERSION}
+ENV PYTHONUNBUFFERED=1
+
+# Definir directorio de trabajo interno
+WORKDIR /app
+
+# Copiar el script de la aplicación
+COPY app.py .
+
+# Comando por defecto ejecutado en formato EXEC (JSON array)
+CMD ["python", "app.py"]

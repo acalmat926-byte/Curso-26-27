@@ -1,0 +1,16 @@
+services:
+  web-server:
+    image: nginx:1.25-alpine
+    container_name: web_con_persistencia
+    ports:
+      - "8080:80"
+    volumes:
+      # Bind mount: carpeta local sincronizada
+      - ./sitio_web:/usr/share/nginx/html:ro
+      # Volumen nombrado para logs
+      - nginx_logs:/var/log/nginx
+    restart: always
+
+volumes:
+  nginx_logs:
+    driver: local
