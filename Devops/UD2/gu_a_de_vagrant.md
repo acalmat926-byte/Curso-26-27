@@ -186,21 +186,23 @@ Por ejemplo:
  **¿Cuándo se ejecuta la provisión?** 
    * Se ejecuta únicamente **la primera vez** que lanzas el comando `vagrant up`.
    * Si apagas la máquina y la vuelves a encender, el script **no** se volverá a ejecutar para no duplicar procesos.
-   * **Forzar la reejecución:**
-   * Si modificas el script y quieres aplicar los cambios en una máquina ya existente, debes ejecutar:
-     ```bash
-     vagrant provision
-     ```
-   * O bien reiniciar aplicando el flag de aprovisionamiento:
-     ```bash
-     vagrant up --provision
-     ```
+  
+**Forzar la reejecución:**
+
+Si modificas el script y quieres aplicar los cambios en una máquina ya existente, debes ejecutar:
+    
+```bash
+vagrant provision
+```
+
+O bien reiniciar aplicando el flag de aprovisionamiento:
+```bash
+vagrant up --provision
+```
 
 
 ---
 
-
----
 
 
 > [!IMPORTANT] 
