@@ -1,0 +1,18 @@
+<header class="app-header">
+  <a  routerLink="/productos">
+    <h1>Tech Store</h1>
+    <p>Catálogo interactivo de productos</p>
+  </a>
+
+  <nav>
+    <a routerLink="/productos" routerLinkActive="active">Catálogo</a>
+    <br />
+    <a routerLink="/nuevo-producto" routerLinkActive="active">Nuevo producto</a>
+  </nav>
+
+  @if (this.productService.getFavorites().length> 0) {
+    <span title="Productos en favoritos">
+      ⭐ {{ this.productService.getFavorites().length }}
+    </span>
+  }
+</header>

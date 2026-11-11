@@ -1,0 +1,15 @@
+<app-product-search [term]="searchTerm()" (searchChange)="onSearch($event)" />
+
+@if (filteredProducts().length === 0) {
+  <p>No hay productos que coincidan con la búsqueda</p>
+} @else {
+  <div>
+    @for (product of filteredProducts(); track product.id) {
+      <app-product-card
+        [product]="product"
+        [isFavorite]="isFavorite(product.id)"
+        (favoriteOutput)="onToggleFavorite($event)"
+      />
+    }
+  </div>
+}

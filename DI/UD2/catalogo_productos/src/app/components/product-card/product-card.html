@@ -1,0 +1,27 @@
+<div >
+    <img [ngSrc]="product().imageUrl" [alt]="product().name" priority width="100" height="100" />
+
+    <h3 >{{ product().name }}</h3>
+    <span >{{ product().category | titlecase }}</span>
+    <ul>
+      <li>Precio Inicial: {{ product().price  | currency: 'EUR' }}</li>
+      <li>Precio con Descuento: {{ product().price | discount: 10 | currency: 'EUR' }}</li>
+      <li>        
+        @if (product().inStock) {
+          En stock
+        } @else {
+          Agotado
+        }
+      </li>
+    </ul>
+  <a  [routerLink]="['/producto', product().id]">
+      Ver detalle
+  </a> 
+  <button type="button" (click)="favoriteOutput.emit(product())">
+      @if (isFavorite()) {
+            En favoritos
+        } @else {
+          Añadir a favoritos
+        }
+  </button>
+</div>

@@ -1,0 +1,18 @@
+
+  <h4>Opiniones de los usuarios ({{ reviews().length }})</h4>
+
+  <!-- @for con track -->
+  @for (review of reviews(); track review.id) {
+    <article >
+      <header>
+        <strong>{{ review.author }}</strong>
+        <span [attr.aria-label]="review.rating + ' de 5 estrellas'">
+          {{ '★'.repeat(review.rating) }}{{ '☆'.repeat(5 - review.rating) }}
+        </span>
+      </header>
+      <p>{{ review.comment }}</p>
+      <time [attr.datetime]="review.date">{{ review.date | date: 'dd/MM/yyyy' }}</time>
+    </article>
+  } @empty {
+    <p >Este producto todavía no tiene opiniones.</p>
+  }

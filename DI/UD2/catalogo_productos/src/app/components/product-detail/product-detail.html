@@ -1,0 +1,48 @@
+<a routerLink="/productos">← Volver al catálogo</a>
+
+@if (product; as p) {
+
+      <br>
+      <br>
+      
+      <img [ngSrc]="p.imageUrl" [alt]="p.name" priority width="100" height="100"/>
+
+      <h2 >{{ p.name }}</h2>
+    <span >{{ p.category | titlecase }}</span>
+    <ul>
+      <li>Precio Inicial: {{ p.price  | currency: 'EUR' }}</li>
+      <li>Precio con Descuento: {{ p.price | discount: 10 | currency: 'EUR' }}</li>
+      <li>        
+        @if (p.inStock) {
+          En stock
+        } @else {
+          Agotado
+        }
+      </li>
+    </ul>
+      
+    <button type="button" (click)="cambiarFavorito()">
+          @if (this.productService.isFavorite(this.product.id)) {
+                En favoritos
+            } @else {
+              Añadir a favoritos
+            }
+    </button>
+
+      
+    @defer (on interaction; on viewport) {
+      <app-product-reviews [reviews]="p.reviews" />
+    } @placeholder (minimum 1000ms) {
+      <p> Haz clic o desplázate para cargar las opiniones del producto </p>
+    } @loading (after 0ms; minimum 6000ms) {
+      <p>Cargando opiniones...</p>
+    } @error {
+      <p>
+        No se han podido cargar las opiniones del producto.
+        Comprueba tu conexión e inténtalo de nuevo.
+      </p>
+    }
+} @else {
+      <h2>Producto no encontrado</h2>
+      <p>No existe ningún producto con el id {{ id() }}.</p>    
+}
