@@ -90,15 +90,126 @@ vagrant destroy
 > [!IMPORTANT] 
 > **ACTIVIDAD 1**
 
-## Recurso: Scripts de Aprovisionamiento
-
-> [!TIP]
-> **Aprovisionamiento automatizado:** Consulta el siguiente tutorial para profundizar en la automatización de la instalación de software al levantar la VM.
-> 
-> 🎥 [Ver vídeo tutorial en YouTube sobre Scripts de Aprovisionamiento](https://www.youtube.com/watch?v=aLYMcwsIcwk)
-
 > [!IMPORTANT] 
 > **ACTIVIDAD 2**
+
+## Scripts de Aprovisionamiento
+
+-> Cuando trabajamos con máquinas virtuales en desarrollo, no basta solo con crear la máquina 
+
+-> Necesitamos que tenga instalado el software necesario (servidores web, bases de datos, lenguajes de programación, etc.). 
+
+--> A este proceso de configuración automática lo llamamos **aprovisionamiento**.
+
+* **¿Por qué se usa?** Evita tener que entrar por SSH a la máquina e instalar todo manualmente cada vez que creamos o destruimos el entorno.
+* **Ventaja principal:** Si le pasas tu proyecto a un compañero de clase o de trabajo, ejecutando un solo comando tendrá exactamente la misma configuración que tú.
+
+---
+
+### Herramientas de aprovisionamiento 
+
+Vagrant permite integrar distintas herramientas para aprovisionar sistemas:
+
+* **Gestores avanzados:** Herramientas como *Ansible, Puppet, Chef* o *Docker* se usan en entornos profesionales complejos.
+* **Shell Scripts (`.sh`):** Es la opción más sencilla, directa y rápida.
+
+### Aspectos a tener en cuenta para creación del aprovisionamiento
+
+
+- **Ejecución NO interactiva**
+
+Como los scripts de aprovisionamiento se ejecutan en segundo plano, **ningún comando puede quedarse esperando a que un usuario pulse una tecla**.
+
+**El problema:** Si instalas un paquete y el sistema te pregunta `¿Desea continuar? [S/n]`, el script se quedará congelado o fallará al no recibir respuesta.
+
+**La solución:** Utilizar siempre modificadores o parámetros que respondan afirmativamente de forma automática.
+
+*Ejemplo:* Usar `apt-get install -y nginx` en lugar de `apt-get install nginx`.
+
+- **Permisos de superusuario**
+
+En máquinas Linux, Vagrant ejecuta los scripts por defecto con permisos de `root`. **No hace falta escribir `sudo`** delante de los comandos 
+
+
+### Ejemplos Prácticos de Configuración
+
+Existen dos formas de incluir scripts de Shell en tu `Vagrantfile`:
+
+#### Opción A: Script Inline (dentro del propio Vagrantfile)
+
+Ideal para instalaciones muy cortas (de 2 o 3 líneas). 
+
+```ruby
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/trusty64"
+
+  # Definimos el bloque de comandos Bash inline
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    apt-get install -y apache2
+  SHELL
+
+end
+```
+
+Ejecución de ejemplo 
+
+1. Creación de carpeta para máquina virtual `mkdir p1`
+2. Acceder en la carpeta `cd p1`
+3. Iniciar máquina virtual `vagrant init`
+4. Modificamos el archivo Vagrantfile con el contenido de arriba
+5. Arrancamos la máquina virtual `vagrant up`
+6. Entramos en la máquina virtual por ssh `vagrant ssh`
+7. Dentro de la MV para comprobar que se instaló apache `curl localhost`
+
+
+#### Opción B: Script en archivo externo `.sh`
+
+Es la opción recomendada cuando la instalación empieza a crecer y queremos mantener un código limpio y organizado.
+
+1. Creas el archivo del script con el nombre y contenido que deseamos en la misma carpeta del proyecto:
+
+Por ejemplo:
+   ```bash
+    apt-get update
+    apt-get install -y apache2
+    echo "<h1>Hola desde Vagrant</h1>" > /var/www/html/index.html
+   ```
+
+2. Apuntas al archivo desde el `Vagrantfile` mediante el parámetro `path`:
+   ```ruby
+   Vagrant.configure("2") do |config|
+     config.vm.box = "ubuntu/trusty64"
+
+     # Enlazamos la ruta del script externo
+     config.vm.provision "shell", path: "php.sh"
+   end
+   ```
+
+ **¿Cuándo se ejecuta la provisión?** 
+   * Se ejecuta únicamente **la primera vez** que lanzas el comando `vagrant up`.
+   * Si apagas la máquina y la vuelves a encender, el script **no** se volverá a ejecutar para no duplicar procesos.
+  
+**Forzar la reejecución:**
+
+Si modificas el script y quieres aplicar los cambios en una máquina ya existente, debes ejecutar:
+    
+```bash
+vagrant provision
+```
+
+O bien reiniciar aplicando el flag de aprovisionamiento:
+```bash
+vagrant up --provision
+```
+
+
+---
+
+
+
+> [!IMPORTANT] 
+> **ACTIVIDAD 3**
 ---
 
 ## Configuración de Redes en Vagrant
