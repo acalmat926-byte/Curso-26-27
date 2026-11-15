@@ -1,0 +1,28 @@
+<form [formGroup]="form" (ngSubmit)="enviar()">
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" />
+    <mat-error>El nombre es obligatorio</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email" />
+    <mat-error>Introduce un email válido</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>País</mat-label>
+    <mat-select formControlName="pais">
+      <mat-option value="es">España</mat-option>
+      <mat-option value="mx">México</mat-option>
+      <mat-option value="ar">Argentina</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="acepto">Acepto los términos</mat-checkbox>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">
+    Enviar
+  </button>
+</form>

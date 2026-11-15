@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Abrir menú">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Mi aplicación</span>
+</mat-toolbar>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/botones">
+    <mat-icon>smart_button</mat-icon>
+    <span>Botones</span>
+  </button>
+
+  <button mat-menu-item routerLink="/formulario">
+    <mat-icon>description</mat-icon>
+    <span>Formulario</span>
+  </button>
+
+  <button mat-menu-item routerLink="/tabla">
+    <mat-icon>table_view</mat-icon>
+    <span>Tabla</span>
+  </button>
+
+  <button mat-menu-item routerLink="/dialogo">
+    <mat-icon>delete</mat-icon>
+    <span>Diálogo</span>
+  </button>
+
+  <button mat-menu-item routerLink="/notificacion">
+    <mat-icon>notifications</mat-icon>
+    <span>Notificación</span>
+  </button>
+
+</mat-menu>
