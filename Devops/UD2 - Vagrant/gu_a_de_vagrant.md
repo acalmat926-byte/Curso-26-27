@@ -689,12 +689,6 @@ Los snapshots de Vagrant permiten capturar el estado completo de una máquina vi
 - **Demos y presentaciones:** Garantizar un estado limpio y funcional para demostraciones repetidas.
 
 > [!IMPORTANT] 
-> **ACTIVIDAD 3**
-
-> [!IMPORTANT] 
 > **ACTIVIDAD 4**
-
-> [!IMPORTANT] 
-> **ACTIVIDAD 5**
 
 
