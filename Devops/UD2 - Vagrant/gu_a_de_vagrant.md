@@ -4,46 +4,57 @@
 
 ## Índice
 
-- [Vagrant: ¿Qué es y Para Qué Sirve?](#vagrant-qué-es-y-para-qué-sirve)
-- [Instalación](#instalación)
+- [VAGRANT: ¿Qué es y Para Qué Sirve?](#vagrant-qué-es-y-para-qué-sirve)
+- [INSTALACIÓN](#instalación)
   - [Instalación de Vagrant](#-instalación-de-vagrant)
   - [Instalación de VirtualBox](#-instalación-de-virtualbox)
-- [Ayuda](#ayuda)
-- [Boxes](#boxes)
+- [AYUDA](#ayuda)
+- [BOXES](#boxes)
   - [¿Qué son las Boxes?](#qué-son-las-boxes)
   - [Gestión de Versiones y Comandos Útiles](#gestión-de-versiones-y-comandos-útiles)
-- [Vagrantfile](#vagrantfile)
+- [VAGRANTFILE](#vagrantfile)
   - [Estructura básica](#estructura-básica)
   - [Opciones más habituales](#opciones-más-habituales)
   - [Comandos útiles](#comandos-útiles)
-- [El Flujo de Trabajo Esencial de Vagrant](#el-flujo-de-trabajo-esencial-de-vagrant)
+- [FLUJO DE TRABAJO ESENCIAL VAGRANT](#flujo-de-trabajo-esencial-vagrant)
   - [Ejemplo 1](#ejemplo-1)
-- [Scripts de Aprovisionamiento](#scripts-de-aprovisionamiento)
+- [SCRIPTS DE APROVISIONAMIENTO](#scripts-de-aprovisionamiento)
   - [Herramientas de aprovisionamiento](#herramientas-de-aprovisionamiento)
   - [Aspectos a tener en cuenta para creación del aprovisionamiento](#aspectos-a-tener-en-cuenta-para-creación-del-aprovisionamiento)
   - [Ejemplos Prácticos de Configuración](#ejemplos-prácticos-de-configuración)
     - [Opción A: Script Inline (dentro del propio Vagrantfile)](#opción-a-script-inline-dentro-del-propio-vagrantfile)
     - [Opción B: Script en archivo externo `.sh`](#opción-b-script-en-archivo-externo-sh)
-- [Recursos de la VM](#recursos-de-la-vm)
+- [RECURSOS DE LA VM](#recursos-de-la-vm)
   - [Sintaxis con VirtualBox](#sintaxis-con-virtualbox)
   - [Opciones más habituales](#opciones-más-habituales)
   - [Aspectos a tener en cuenta](#aspectos-a-tener-en-cuenta)
   - [Comprobar que se ha aplicado](#comprobar-que-se-ha-aplicado)
-- [Configuración de Redes en Vagrant](#configuración-de-redes-en-vagrant)
+- [REDES](#redes)
   - [1. NAT (Network Address Translation)](#1-nat-network-address-translation)
   - [2. Private Network (Host-Only)](#2-private-network-host-only)
   - [3. Public Network (Bridged)](#3-public-network-bridged)
-- [Carpetas Sincronizadas (Synced Folders) en Vagrant](#carpetas-sincronizadas-synced-folders-en-vagrant)
+  - [Port Forwarding (Redirección de Puertos)](#port-forwarding-redirección-de-puertos)
+  - [Resumen comparativo](#resumen-comparativo)
+- [ENTORNOS MULTIMÁQUINA](#entornos-multimáquina)
+  - [Estructura básica](#estructura-básica-1)
+  - [Ejemplo completo: web + base de datos](#ejemplo-completo-web--base-de-datos)
+  - [Comandos con varias máquinas](#comandos-con-varias-máquinas)
+  - [Comprobar la comunicación entre máquinas](#comprobar-la-comunicación-entre-máquinas)
+  - [Opciones útiles](#opciones-útiles)
+  - [Aspectos a tener en cuenta](#aspectos-a-tener-en-cuenta-1)
+- [CARPETAS SINCRONIZADAS](#carpetas-sincronizadas)
+  - [La Carpeta `/vagrant` por Defecto](#la-carpeta-vagrant-por-defecto)
+    - [Cómo desactivarla](#cómo-desactivarla)
   - [Configuración Básica](#configuración-básica)
   - [Parámetro `type`](#parámetro-type)
   - [Permisos y Opciones de Montaje](#permisos-y-opciones-de-montaje)
   - [Ejemplo de Configuración en Vagrantfile](#ejemplo-de-configuración-en-vagrantfile)
-- [Tipos de Synced Folders: Comparativa Técnica](#tipos-de-synced-folders-comparativa-técnica)
-- [Gestión de Snapshots: Protección y Recuperación](#gestión-de-snapshots-protección-y-recuperación)
+  - [Tipos de Synced Folders: Comparativa Técnica](#tipos-de-synced-folders-comparativa-técnica)
+- [SNAPSHOTS](#snapshots)
   - [Comandos de Snapshots](#comandos-de-snapshots)
   - [Casos de Uso Prácticos](#casos-de-uso-prácticos)
 
-## Vagrant: ¿Qué es y Para Qué Sirve?
+## VAGRANT: ¿Qué es y Para Qué Sirve?
 
 - **Vagrant** es una herramienta de código abierto.
 - Facilita la **creación y gestión de entornos de desarrollo virtualizados** y portables.
@@ -54,7 +65,7 @@
 
 ---
 
-## Instalación
+## INSTALACIÓN
 
 ### 🔗[Instalación de Vagrant](https://developer.hashicorp.com/vagrant/install)
 
@@ -63,14 +74,14 @@
 ### 🔗[Instalación de VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
 
-## Ayuda
+## AYUDA
 
 🔗[Vagrant Documentación](https://developer.hashicorp.com/vagrant/docs)
 
 - Ayuda en comandos
 `vagrant -h`
 
-## Boxes
+## BOXES
 
 ### ¿Qué son las Boxes?
 
@@ -94,7 +105,7 @@
 
 ---
 
-## Vagrantfile
+## VAGRANTFILE
 
 - El **Vagrantfile** es el archivo de configuración que describe **cómo debe ser la máquina virtual**: qué box usa, qué red tiene, qué carpetas comparte y qué software se instala.
 - Se crea con `vagrant init` y vive en la **raíz de la carpeta del proyecto**. Cada proyecto tiene su propio Vagrantfile.
@@ -135,7 +146,7 @@ end
 > **Importante:** Cualquier cambio en el Vagrantfile solo se aplica al **reiniciar la VM** (`vagrant reload`) o al crearla de nuevo; no se refleja en una máquina que ya está en marcha.
 
 ---
-## El Flujo de Trabajo Esencial de Vagrant
+## FLUJO DE TRABAJO ESENCIAL VAGRANT
 
 Vagrant proporciona un ciclo de vida completo para la **gestión de máquinas virtuales mediante comandos** simples y directos:
 
@@ -176,7 +187,7 @@ vagrant destroy
 > [!IMPORTANT] 
 > **ACTIVIDAD 2**
 
-## Scripts de Aprovisionamiento
+## SCRIPTS DE APROVISIONAMIENTO
 
 -> Cuando trabajamos con máquinas virtuales en desarrollo, no basta solo con crear la máquina 
 
@@ -197,7 +208,52 @@ Vagrant permite integrar distintas herramientas para aprovisionar sistemas:
 * **Shell Scripts (`.sh`):** Es la opción más sencilla, directa y rápida.
 
 ### Aspectos a tener en cuenta para creación del aprovisionamiento
+- **Script idempotente**
 
+Un script es idempotente si ejecutarlo una vez o diez veces deja el sistema en el mismo estado final, sin errores ni efectos acumulados.
+
+Ejemplo 1: Añadir una línea a un archivo
+
+```bash
+# ❌ No idempotente: cada ejecución añade la línea otra vez
+echo "export PATH=\$PATH:/opt/app" >> /etc/profile
+
+# ✅ Idempotente: solo la añade si no existe
+grep -q "/opt/app" /etc/profile || echo "export PATH=\$PATH:/opt/app" >> /etc/profile
+```
+
+`>>` **añade** al final del archivo. Ejecutado 3 veces, la línea aparecería 3 veces.
+
+Ejemplo 2: Crear una carpeta
+
+```bash
+# ❌ No idempotente: la segunda vez da error "File exists"
+mkdir /var/www/miapp
+
+# ✅ Idempotente: la crea si no existe y no se queja si ya está
+mkdir -p /var/www/miapp
+```
+
+Un error en el script puede **detener el aprovisionamiento** y dejar sin ejecutar todo lo que viene después.
+
+Ejemplo 3: Instalar paquetes
+
+```bash
+# ✅ Ya es idempotente por naturaleza
+apt-get install -y apache2
+```
+
+Si el paquete ya está instalado, `apt` lo detecta y no hace nada.
+
+Ejemplo 4: Escribir un archivo completo
+
+```bash
+# ✅ Idempotente: > sobrescribe el archivo, el resultado es siempre el mismo
+echo "<h1>Hola desde Vagrant</h1>" > /var/www/html/index.html
+
+# ❌ No idempotente: >> añade contenido en cada ejecución
+echo "<h1>Hola desde Vagrant</h1>" >> /var/www/html/index.html
+```
 
 - **Ejecución NO interactiva**
 
@@ -293,7 +349,7 @@ vagrant up --provision
 > **ACTIVIDAD 3**
 ---
 
-## Recursos de la VM
+## RECURSOS DE LA VM
 
 - Por defecto, Vagrant crea máquinas virtuales con **recursos mínimos** (normalmente 1 GB de RAM y 1 CPU), que pueden quedarse cortos para bases de datos, servidores de aplicaciones, etc.
 - Los recursos de hardware **no los gestiona Vagrant, sino el proveedor** (VirtualBox, VMware, Hyper-V...). Por eso se configuran dentro de un bloque específico del proveedor.
@@ -340,43 +396,241 @@ free -h    # Memoria RAM disponible
 
 > **Importante:** Los cambios de recursos solo se aplican al **reiniciar la VM** con `vagrant reload` (o al crearla de nuevo con `vagrant up`). No se actualizan con la máquina en marcha ni con `vagrant provision`.
 
-## Configuración de Redes en Vagrant
+## REDES
 
 Vagrant ofrece tres modos de red principales, desde aislamiento completo hasta integración total con la red física:
 
 ### 1. NAT (Network Address Translation)
+
 - **Propósito:** Acceso a Internet desde la VM.
 - **Características:**
-  - Configuración por defecto en Vagrant.
-  - El host no puede acceder directamente a la VM a menos que se reenvíen puertos (*port forwarding*).
-  - Ideal para desarrollo aislado con conectividad externa.
+  * Configuración por defecto en Vagrant: **toda VM tiene siempre un adaptador NAT**.
+  * La VM puede salir a Internet, pero desde la máquina anfitriona **no se puede acceder a ella directamente**, salvo que se redirijan puertos (*port forwarding*).
+  * Vagrant ya usa esta técnica para SSH: redirige el puerto 22 de la VM al 2222 del host (por eso funciona `vagrant ssh`).
+  * Ideal para desarrollo aislado con conectividad externa.
+
+No requiere configuración, ya que viene activado por defecto. Para acceder a un servicio de la VM desde el host se usa el **port forwarding** (ver subsección más abajo).
 
 ### 2. Private Network (Host-Only)
-- **Propósito:** Comunicación host-VM y entre VMs.
+
+- **Propósito:** Comunicación máquina anfitriona-VM y entre VMs.
 - **Características:**
-  - **Red privada** entre el host y las máquinas virtuales.
-  - Asignación de **IPs estáticas o DHCP**.
-  - **Sin acceso directo a Internet** desde la red privada.
-  - Perfecto para clusters y arquitecturas multi-máquina.
+  * **Red privada** entre la máquina anfitriona y las máquinas virtuales.
+  * Asignación de **IPs estáticas o DHCP**.
+  * **No es accesible desde otros equipos** de la red física, solo desde la máquina anfitriona y las VMs conectadas a ella.
+  * Perfecto para clusters y arquitecturas multi-máquina.
+
+```ruby
+# IP estática
+config.vm.network "private_network", ip: "192.168.56.10"
+
+# IP asignada por DHCP
+config.vm.network "private_network", type: "dhcp"
+```
+
+> **Nota:** En VirtualBox, las IPs de una red privada deben estar en el rango `192.168.56.0/21` (de `192.168.56.1` a `192.168.63.254`). Fuera de ese rango, Vagrant dará error.
 
 ### 3. Public Network (Bridged)
+
 - **Propósito:** VM como dispositivo de red real.
 - **Características:**
-  - La VM aparece como **dispositivo físico en la red local**.
-  - Obtiene una IP del router de la red física.
-  - Accesible desde otros dispositivos de la red.
-  - Útil para pruebas de producción y demostraciones.
+  * La VM aparece como **dispositivo físico en la red local**.
+  * Obtiene una IP del router de la red física (por DHCP).
+  * Accesible desde otros dispositivos de la red.
+  * Útil para pruebas de producción y demostraciones.
+
+```ruby
+# Vagrant te pregunta qué interfaz usar al hacer vagrant up
+config.vm.network "public_network"
+
+# Indicando la interfaz de red del host (evita la pregunta)
+config.vm.network "public_network", bridge: "Wi-Fi"
+```
+
+### Port Forwarding (Redirección de Puertos)
+
+Permite acceder desde el host a un servicio que corre dentro de la VM. Es la forma más habitual de probar una web sin cambiar el tipo de red.
+
+```ruby
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/jammy64"
+
+  # El puerto 8080 del host apunta al puerto 80 de la VM
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+
+  # Más seguro: solo accesible desde el propio equipo
+  # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
+end
+```
+
+- `guest`: puerto **dentro de la VM** donde escucha el servicio.
+- `host`: puerto **de tu equipo** desde el que se accede.
+- `host_ip`: limita desde qué dirección se puede acceder. Con `127.0.0.1` solo es accesible desde tu propio equipo.
+
+Si la VM tiene Apache instalado, se accede desde el navegador del host en `http://localhost:8080`.
+
+> **Consejo:** Si el puerto del host ya está en uso, Vagrant dará error. Elige otro o añade `auto_correct: true` para que busque uno libre automáticamente.
+
+### Resumen comparativo
+
+| Modo            | Acceso a Internet | Host → VM                | Otros equipos de la red → VM |
+| --------------- | ----------------- | ------------------------ | ---------------------------- |
+| **NAT**         | Sí                | Solo con port forwarding | No                           |
+| **Private**     | Sí (vía NAT)      | Sí (por IP privada)      | No                           |
+| **Public**      | Sí                | Sí                       | Sí                           |
+
+> **Atención:** Al exponer la VM en la red local, cualquier equipo de esa red podrá acceder a ella. Úsalo con cuidado en redes que no sean de confianza.
 
 🔗 *Más información sobre redes:* [Guía de configuración de redes en Vagrant](https://codigoelectronica.com/blog/configurar-redes-en-vagrant)
 
-> [!IMPORTANT] 
-> **ACTIVIDAD 3**
+---
 
 ---
 
-## Carpetas Sincronizadas (Synced Folders) en Vagrant
+## ENTORNOS MULTIMÁQUINA
+
+- Un único `Vagrantfile` puede definir **varias máquinas virtuales** que trabajan juntas, por ejemplo un servidor **web** y un servidor de **base de datos**.
+- Se usa el bloque `config.vm.define`, que crea una máquina con su propio **nombre** y su propia configuración.
+- Con un solo `vagrant up` se levanta toda la arquitectura, y se puede compartir con el equipo igual que cualquier otro proyecto.
+
+### Estructura básica
+
+```ruby
+Vagrant.configure("2") do |config|
+
+  # Configuración común a TODAS las máquinas
+  config.vm.box = "ubuntu/jammy64"
+
+  # Máquina 1: servidor web
+  config.vm.define "web" do |web|
+    web.vm.hostname = "web"
+    web.vm.network "private_network", ip: "192.168.56.10"
+  end
+
+  # Máquina 2: servidor de base de datos
+  config.vm.define "db" do |db|
+    db.vm.hostname = "db"
+    db.vm.network "private_network", ip: "192.168.56.11"
+  end
+
+end
+```
+
+- `config.vm.define "web" do |web| ... end`: define una máquina llamada `web`. La variable entre barras (`|web|`) es la que se usa dentro del bloque en lugar de `config`.
+- Lo que se escribe **fuera** de los bloques `define` (como la box) se aplica a **todas** las máquinas.
+- Lo que se escribe **dentro** de un bloque `define` solo afecta a **esa** máquina.
+- Cada máquina necesita una **IP distinta** en la red privada para poder comunicarse con las demás.
+
+### Ejemplo completo: web + base de datos
+
+```ruby
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "ubuntu/jammy64"
+
+  # --- Servidor web ---
+  config.vm.define "web", primary: true do |web|
+    web.vm.hostname = "web"
+    web.vm.network "private_network", ip: "192.168.56.10"
+    web.vm.network "forwarded_port", guest: 80, host: 8080
+
+    web.vm.provider "virtualbox" do |vb|
+      vb.name   = "servidor-web"
+      vb.memory = 1024
+    end
+
+    web.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y apache2
+    SHELL
+  end
+
+  # --- Servidor de base de datos ---
+  config.vm.define "db" do |db|
+    db.vm.hostname = "db"
+    db.vm.network "private_network", ip: "192.168.56.11"
+
+    db.vm.provider "virtualbox" do |vb|
+      vb.name   = "servidor-db"
+      vb.memory = 2048
+    end
+
+    db.vm.provision "shell", inline: <<-SHELL
+      apt-get update
+      apt-get install -y mariadb-server
+    SHELL
+  end
+
+end
+```
+
+### Comandos con varias máquinas
+
+Cuando hay varias VMs, los comandos pueden aplicarse a **todas** o a **una concreta** indicando su nombre:
+
+| Comando                   | Efecto                                            |
+| ------------------------- | ------------------------------------------------- |
+| `vagrant up`              | Levanta **todas** las máquinas                    |
+| `vagrant up web`          | Levanta solo la máquina `web`                     |
+| `vagrant status`          | Muestra el estado de todas las máquinas           |
+| `vagrant ssh web`         | Entra por SSH en la máquina `web`                 |
+| `vagrant provision db`    | Vuelve a aprovisionar solo la máquina `db`        |
+| `vagrant halt`            | Apaga **todas** las máquinas                      |
+| `vagrant halt db`         | Apaga solo la máquina `db`                        |
+| `vagrant destroy -f`      | Elimina **todas** las máquinas sin pedir confirmación |
+
+
+### Comprobar la comunicación entre máquinas
+
+```bash
+vagrant up
+vagrant ssh web
+
+# Dentro de la máquina web, comprobamos que "ve" a la máquina db
+ping -c 3 192.168.56.11
+```
+
+Desde el anfitrión (*host*) también se puede acceder al servidor web en `http://localhost:8080`.
+
+### Opciones útiles
+
+
+- **Evitar repetir código:** si varias máquinas comparten un mismo script, defínelo fuera de los bloques `define` y se ejecutará en todas.
+
+  ```ruby
+  config.vm.provision "shell", inline: "apt-get update"
+  ```
+
+### Aspectos a tener en cuenta
+
+- **Recursos:** cada VM consume su propia RAM y CPU. Con varias máquinas, ajusta `vb.memory` para no superar lo que tiene tu equipo.
+- **Nombres únicos:** el nombre del `define` (`web`, `db`) identifica la máquina en los comandos de Vagrant. Los `vb.name` también deben ser únicos en VirtualBox.
+- **Puertos del anfitrión:** si dos máquinas usan el mismo puerto `host` en un `forwarded_port`, habrá conflicto. Usa puertos distintos (8080, 8081...).
+- **Orden de arranque:** Vagrant levanta las máquinas **en el orden en que están definidas** en el Vagrantfile.
+- **Solo funciona entre máquinas de la red privada:** para que `web` y `db` se vean, ambas deben estar en la misma red privada y con IPs distintas dentro del mismo rango.
+
+
+---
+
+## CARPETAS SINCRONIZADAS
 
 Las carpetas sincronizadas son fundamentales para el desarrollo, permitiendo compartir archivos entre tu máquina local (*host*) y la máquina virtual (*guest*) de forma bidireccional y eficiente.
+
+### La Carpeta `/vagrant` por Defecto
+
+- Vagrant **sincroniza automáticamente** la carpeta del proyecto (la que contiene el `Vagrantfile`) del anfitrión (*host*) con la ruta **`/vagrant`** dentro de la máquina invitada (*guest*).
+- No hace falta configurar nada: funciona desde el primer `vagrant up`.
+- La sincronización es **bidireccional** (con el tipo por defecto de VirtualBox): un archivo creado o modificado en un lado aparece al instante en el otro.
+
+#### Cómo desactivarla
+
+Si no quieres que se comparta la carpeta del proyecto (por ejemplo, por seguridad), se desactiva así:
+
+```ruby
+config.vm.synced_folder ".", "/vagrant", disabled: true
+```
+
+> **Nota:** Si la carpeta `/vagrant` aparece vacía, puede deberse a que la sincronización con VirtualBox ha fallado (por ejemplo, por falta de las *Guest Additions*). Prueba con `vagrant reload`.
 
 ### Configuración Básica
 Sintaxis básica dentro del `Vagrantfile`:
@@ -416,21 +670,7 @@ end
 
 ---
 
-## Tipos de Synced Folders: Comparativa Técnica
-
-| Tipo | Rendimiento | Compatibilidad | Caso de Uso Ideal |
-| :--- | :--- | :--- | :--- |
-| **VirtualBox** | Medio | Universal (por defecto) | Desarrollo general, configuración inicial |
-| **rsync** | Alto | Linux, macOS, WSL | Proyectos con muchos archivos pequeños |
-| **NFS** | Muy Alto | Linux, macOS | Aplicaciones con I/O intensivo |
-| **SMB** | Medio-Alto | Windows, Linux, macOS | Entornos Windows corporativos |
-
-- La elección del método de sincronización impacta directamente en la velocidad de desarrollo.
-- **NFS** y **rsync** son preferibles en entornos Linux/macOS para máximo rendimiento, mientras que **SMB** es la mejor opción en ecosistemas Windows nativos.
-
----
-
-## Gestión de Snapshots: Protección y Recuperación
+## SNAPSHOTS
 
 Los snapshots de Vagrant permiten capturar el estado completo de una máquina virtual en un momento específico, facilitando la experimentación sin riesgo y la recuperación rápida ante problemas.
 
@@ -449,7 +689,12 @@ Los snapshots de Vagrant permiten capturar el estado completo de una máquina vi
 - **Demos y presentaciones:** Garantizar un estado limpio y funcional para demostraciones repetidas.
 
 > [!IMPORTANT] 
+> **ACTIVIDAD 3**
+
+> [!IMPORTANT] 
 > **ACTIVIDAD 4**
 
 > [!IMPORTANT] 
 > **ACTIVIDAD 5**
+
+
