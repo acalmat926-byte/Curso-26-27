@@ -2,6 +2,47 @@
 
 # UD2 - Gestión de Entornos Virtuales con Vagrant
 
+## Índice
+
+- [Vagrant: ¿Qué es y Para Qué Sirve?](#vagrant-qué-es-y-para-qué-sirve)
+- [Instalación](#instalación)
+  - [Instalación de Vagrant](#-instalación-de-vagrant)
+  - [Instalación de VirtualBox](#-instalación-de-virtualbox)
+- [Ayuda](#ayuda)
+- [Boxes](#boxes)
+  - [¿Qué son las Boxes?](#qué-son-las-boxes)
+  - [Gestión de Versiones y Comandos Útiles](#gestión-de-versiones-y-comandos-útiles)
+- [Vagrantfile](#vagrantfile)
+  - [Estructura básica](#estructura-básica)
+  - [Opciones más habituales](#opciones-más-habituales)
+  - [Comandos útiles](#comandos-útiles)
+- [El Flujo de Trabajo Esencial de Vagrant](#el-flujo-de-trabajo-esencial-de-vagrant)
+  - [Ejemplo 1](#ejemplo-1)
+- [Scripts de Aprovisionamiento](#scripts-de-aprovisionamiento)
+  - [Herramientas de aprovisionamiento](#herramientas-de-aprovisionamiento)
+  - [Aspectos a tener en cuenta para creación del aprovisionamiento](#aspectos-a-tener-en-cuenta-para-creación-del-aprovisionamiento)
+  - [Ejemplos Prácticos de Configuración](#ejemplos-prácticos-de-configuración)
+    - [Opción A: Script Inline (dentro del propio Vagrantfile)](#opción-a-script-inline-dentro-del-propio-vagrantfile)
+    - [Opción B: Script en archivo externo `.sh`](#opción-b-script-en-archivo-externo-sh)
+- [Recursos de la VM](#recursos-de-la-vm)
+  - [Sintaxis con VirtualBox](#sintaxis-con-virtualbox)
+  - [Opciones más habituales](#opciones-más-habituales)
+  - [Aspectos a tener en cuenta](#aspectos-a-tener-en-cuenta)
+  - [Comprobar que se ha aplicado](#comprobar-que-se-ha-aplicado)
+- [Configuración de Redes en Vagrant](#configuración-de-redes-en-vagrant)
+  - [1. NAT (Network Address Translation)](#1-nat-network-address-translation)
+  - [2. Private Network (Host-Only)](#2-private-network-host-only)
+  - [3. Public Network (Bridged)](#3-public-network-bridged)
+- [Carpetas Sincronizadas (Synced Folders) en Vagrant](#carpetas-sincronizadas-synced-folders-en-vagrant)
+  - [Configuración Básica](#configuración-básica)
+  - [Parámetro `type`](#parámetro-type)
+  - [Permisos y Opciones de Montaje](#permisos-y-opciones-de-montaje)
+  - [Ejemplo de Configuración en Vagrantfile](#ejemplo-de-configuración-en-vagrantfile)
+- [Tipos de Synced Folders: Comparativa Técnica](#tipos-de-synced-folders-comparativa-técnica)
+- [Gestión de Snapshots: Protección y Recuperación](#gestión-de-snapshots-protección-y-recuperación)
+  - [Comandos de Snapshots](#comandos-de-snapshots)
+  - [Casos de Uso Prácticos](#casos-de-uso-prácticos)
+
 ## Vagrant: ¿Qué es y Para Qué Sirve?
 
 - **Vagrant** es una herramienta de código abierto.
@@ -29,7 +70,7 @@
 - Ayuda en comandos
 `vagrant -h`
 
-## Boxes de Vagrant: La Base de Todo Entorno
+## Boxes
 
 ### ¿Qué son las Boxes?
 
@@ -49,9 +90,51 @@
 | `vagrant box add hashicorp/bionic64` | Añadir una box al repositorio local |
 | `vagrant box remove hashicorp/bionic64` | Eliminar una box del repositorio local |
 
+---
 
 ---
 
+## Vagrantfile
+
+- El **Vagrantfile** es el archivo de configuración que describe **cómo debe ser la máquina virtual**: qué box usa, qué red tiene, qué carpetas comparte y qué software se instala.
+- Se crea con `vagrant init` y vive en la **raíz de la carpeta del proyecto**. Cada proyecto tiene su propio Vagrantfile.
+- Está escrito en **Ruby**, pero no hace falta saber Ruby: se usa como un lenguaje **declarativo**. Describimos *cómo queremos* la VM y Vagrant se encarga de crearla.
+- Al ser un archivo de texto, se puede **versionar con Git** y compartir con el equipo. Esto es lo que garantiza entornos idénticos para todos.
+
+### Estructura básica
+
+```ruby
+Vagrant.configure("2") do |config|
+  # Aquí va toda la configuración de la VM
+  config.vm.box = "ubuntu/jammy64"
+end
+```
+
+- `Vagrant.configure("2")`: indica que se usa la **versión 2** del formato de configuración (la actual). Siempre se escribe igual.
+- `do |config| ... end`: bloque dentro del cual se define la configuración. `config` es el objeto sobre el que vamos añadiendo opciones.
+- Las líneas que empiezan por `#` son **comentarios**.
+
+### Opciones más habituales
+
+| Opción                                | Para qué sirve                          |
+| ------------------------------------- | --------------------------------------- |
+| `config.vm.box`                       | Box (imagen base) que se utilizará      |
+| `config.vm.hostname`                  | Nombre de host de la VM                 |
+| `config.vm.network`                   | Configuración de red                    |
+| `config.vm.synced_folder`             | Carpetas compartidas host ↔ VM          |
+| `config.vm.provision`                 | Scripts de aprovisionamiento            |
+| `config.vm.provider`                  | Opciones del proveedor (RAM, CPUs...)   |
+
+> **Nota:** Las secciones siguientes de esta guía (aprovisionamiento, redes y carpetas sincronizadas) consisten básicamente en añadir líneas dentro de este bloque.
+
+### Comandos útiles
+
+- `vagrant validate`: comprueba que el Vagrantfile no tiene errores de sintaxis.
+- `vagrant reload`: reinicia la VM aplicando los cambios hechos en el Vagrantfile.
+
+> **Importante:** Cualquier cambio en el Vagrantfile solo se aplica al **reiniciar la VM** (`vagrant reload`) o al crearla de nuevo; no se refleja en una máquina que ya está en marcha.
+
+---
 ## El Flujo de Trabajo Esencial de Vagrant
 
 Vagrant proporciona un ciclo de vida completo para la **gestión de máquinas virtuales mediante comandos** simples y directos:
@@ -206,11 +289,56 @@ vagrant up --provision
 
 ---
 
-
-
 > [!IMPORTANT] 
 > **ACTIVIDAD 3**
 ---
+
+## Recursos de la VM
+
+- Por defecto, Vagrant crea máquinas virtuales con **recursos mínimos** (normalmente 1 GB de RAM y 1 CPU), que pueden quedarse cortos para bases de datos, servidores de aplicaciones, etc.
+- Los recursos de hardware **no los gestiona Vagrant, sino el proveedor** (VirtualBox, VMware, Hyper-V...). Por eso se configuran dentro de un bloque específico del proveedor.
+
+### Sintaxis con VirtualBox
+
+```ruby
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/jammy64"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.name   = "mi-vm"
+    vb.memory = 2048
+    vb.cpus   = 2
+  end
+end
+```
+
+### Opciones más habituales
+
+| Opción        | Descripción                                                    | Ejemplo               |
+| ------------- | -------------------------------------------------------------- | --------------------- |
+| `vb.name`     | Nombre de la VM **en VirtualBox** (el que ves en su interfaz)  | `vb.name = "mi-vm"`   |
+| `vb.memory`   | Memoria RAM asignada, **en MB**                                | `vb.memory = 2048`    |
+| `vb.cpus`     | Número de núcleos de CPU                                       | `vb.cpus = 2`         |
+| `vb.gui`      | Muestra la ventana gráfica de VirtualBox al arrancar           | `vb.gui = true`       |
+
+### Aspectos a tener en cuenta
+
+- **`vb.name` no es lo mismo que `config.vm.hostname`.** El primero es el nombre de la VM en VirtualBox; el segundo es el nombre de host *dentro* del sistema operativo de la VM.
+- **Los nombres deben ser únicos.** Si dos proyectos usan el mismo `vb.name`, pueden producirse conflictos en VirtualBox.
+- **No asignes más recursos de los que tiene tu equipo.** Como regla general, no superes la mitad de la RAM y de los núcleos de tu máquina física, sobre todo si vas a levantar varias VMs a la vez.
+- **La sintaxis depende del proveedor.** Si usas otro proveedor, el bloque cambia (por ejemplo, `config.vm.provider "vmware_desktop"` o `"hyperv"`), igual que algunas opciones.
+
+### Comprobar que se ha aplicado
+
+Una vez arrancada la VM, entra por SSH y verifica los recursos:
+
+```bash
+vagrant ssh
+nproc      # Número de CPUs
+free -h    # Memoria RAM disponible
+```
+
+> **Importante:** Los cambios de recursos solo se aplican al **reiniciar la VM** con `vagrant reload` (o al crearla de nuevo con `vagrant up`). No se actualizan con la máquina en marcha ni con `vagrant provision`.
 
 ## Configuración de Redes en Vagrant
 
