@@ -1,0 +1,69 @@
+<div class="pagina">
+  <button mat-flat-button class="no-print" (click)="imprimir()">Imprimir / Guardar PDF</button>
+
+  <article class="informe">
+
+    <!-- 1. CABECERA DE INFORME (aparece una vez) -->
+    <header class="cabecera">
+      <div class="logo">TIENDA<span>DAM</span></div>
+      <div class="titulo">
+        <h1>Informe de Ventas</h1>
+        <p>Periodo: 01/01/2026 – 30/04/2026</p>
+      </div>
+      <div class="meta">
+        <p>Generado: 26/11/2026</p>
+        <p>Autor: Departamento Comercial</p>
+      </div>
+    </header>
+
+    <!-- Zona de filtros aplicados (resumen) -->
+    <section class="filtros">
+      <strong>Filtros aplicados:</strong> Estado = Todos · Ciudad = Todas
+    </section>
+
+    <!-- 2. CUERPO (detalle) -->
+    <section class="cuerpo">
+
+      <!-- 2.1 Agrupación: encabezado de grupo -->
+      <h2 class="grupo">Cliente: Ana Ruiz</h2>
+      <table>
+        <thead>
+          <tr><th>Nº</th><th>Fecha</th><th>Producto</th><th class="num">Cant.</th><th class="num">Importe</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>12/01/2026</td><td>Portátil 15"</td><td class="num">1</td><td class="num">799,90 €</td></tr>
+          <tr><td>4</td><td>10/02/2026</td><td>Auriculares</td><td class="num">1</td><td class="num">45,50 €</td></tr>
+        </tbody>
+        <!-- 2.2 Pie de grupo: subtotal -->
+        <tfoot>
+          <tr><td colspan="3">Subtotal Ana Ruiz</td><td class="num">2</td><td class="num">845,40 €</td></tr>
+        </tfoot>
+      </table>
+
+      <h2 class="grupo">Cliente: Luis Pérez</h2>
+      <table>
+        <thead>
+          <tr><th>Nº</th><th>Fecha</th><th>Producto</th><th class="num">Cant.</th><th class="num">Importe</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2</td><td>15/01/2026</td><td>Ratón inalámbrico</td><td class="num">3</td><td class="num">59,85 €</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="3">Subtotal Luis Pérez</td><td class="num">3</td><td class="num">59,85 €</td></tr>
+        </tfoot>
+      </table>
+
+      <!-- 3. RESUMEN FINAL (totales generales) -->
+      <div class="totales">
+        <span>Total pedidos: <strong>3</strong></span>
+        <span>Total general: <strong>905,25 €</strong></span>
+      </div>
+    </section>
+
+    <!-- 4. PIE DE PÁGINA (se repite en cada página) -->
+    <footer class="pie">
+      <span>Tienda DAM · Informe confidencial</span>
+      <span>Página 1 de 1</span>
+    </footer>
+  </article>
+</div>

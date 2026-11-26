@@ -1,0 +1,29 @@
+{
+  "clientes": [
+    { "id": 1, "nombre": "Ana Ruiz", "ciudad": "Huelva", "email": "ana@correo.es" },
+    { "id": 2, "nombre": "Luis Pérez", "ciudad": "Sevilla", "email": "luis@correo.es" },
+    { "id": 3, "nombre": "Marta Gómez", "ciudad": "Cádiz", "email": "marta@correo.es" },
+    { "id": 4, "nombre": "Pablo Díaz", "ciudad": "Huelva", "email": "pablo@correo.es" }
+  ],
+  "productos": [
+    { "id": 1, "nombre": "Portátil 15\"", "categoria": "Informática", "precio": 799.9 },
+    { "id": 2, "nombre": "Ratón inalámbrico", "categoria": "Periféricos", "precio": 19.95 },
+    { "id": 3, "nombre": "Teclado mecánico", "categoria": "Periféricos", "precio": 59.0 },
+    { "id": 4, "nombre": "Monitor 27\"", "categoria": "Informática", "precio": 229.0 },
+    { "id": 5, "nombre": "Auriculares", "categoria": "Audio", "precio": 45.5 }
+  ],
+  "pedidos": [
+    { "id": 1, "clienteId": 1, "productoId": 1, "fecha": "2026-01-12", "cantidad": 1, "estado": "Entregado" },
+    { "id": 2, "clienteId": 2, "productoId": 2, "fecha": "2026-01-15", "cantidad": 3, "estado": "Entregado" },
+    { "id": 3, "clienteId": 3, "productoId": 4, "fecha": "2026-02-02", "cantidad": 2, "estado": "Enviado" },
+    { "id": 4, "clienteId": 1, "productoId": 5, "fecha": "2026-02-10", "cantidad": 1, "estado": "Entregado" },
+    { "id": 5, "clienteId": 4, "productoId": 3, "fecha": "2026-02-18", "cantidad": 2, "estado": "Pendiente" },
+    { "id": 6, "clienteId": 2, "productoId": 1, "fecha": "2026-03-03", "cantidad": 1, "estado": "Enviado" },
+    { "id": 7, "clienteId": 3, "productoId": 2, "fecha": "2026-03-07", "cantidad": 5, "estado": "Entregado" },
+    { "id": 8, "clienteId": 4, "productoId": 4, "fecha": "2026-03-21", "cantidad": 1, "estado": "Pendiente" },
+    { "id": 9, "clienteId": 1, "productoId": 3, "fecha": "2026-04-01", "cantidad": 1, "estado": "Enviado" },
+    { "id": 10, "clienteId": 2, "productoId": 5, "fecha": "2026-04-09", "cantidad": 2, "estado": "Pendiente" },
+    { "id": 11, "clienteId": 3, "productoId": 1, "fecha": "2026-04-15", "cantidad": 1, "estado": "Entregado" },
+    { "id": 12, "clienteId": 4, "productoId": 5, "fecha": "2026-04-22", "cantidad": 4, "estado": "Enviado" }
+  ]
+}
