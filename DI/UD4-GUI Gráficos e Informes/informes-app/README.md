@@ -24,24 +24,24 @@ informes-app/
     ├── index.html · main.ts · styles.scss   ← tema de Angular Material
     └── app/
         ├── app.config.ts        ← provideHttpClient, router, idioma es
-        ├── app.routes.ts        ← 4 rutas (una por actividad)
+        ├── app.routes.ts        ← 4 rutas 
         ├── app.component.ts     ← toolbar con navegación
         ├── models/models.ts     ← interfaces Cliente, Producto, Pedido, VentaCsv
         ├── services/
         │   ├── api.service.ts   ← HttpClient → json-server
         │   └── csv.service.ts   ← HttpClient + PapaParse
         └── pages/
-            ├── maqueta-informe/ ← SESIÓN 1
-            ├── datos-bruto/     ← SESIÓN 2
-            ├── informe-pedidos/ ← SESIÓN 3 (API, tabla Material)
-            └── informe-csv/     ← SESIÓN 3 (CSV)
+            ├── maqueta-informe/ 
+            ├── datos-bruto/     
+            ├── informe-pedidos/ 
+            └── informe-csv/
 ```
 
 ## 5.3 Qué se ve en cada ruta
 
-| Ruta | Sesión | Qué demuestra |
+| Ruta | Qué demuestra |
 |---|---|---|
-| `/maqueta` | 1 | Estructura de informe: cabecera, filtros, agrupaciones con subtotales, totales, pie. Botón de imprimir. |
-| `/datos` | 2 | Datos **en bruto** de la API y del CSV con el pipe `json`. |
-| `/informe-pedidos` | 3 | Tabla Material con datos de la API, ordenación (incluso en campos anidados), paginación y pipe `date`. |
-| `/informe-csv` | 3 | Tabla con datos del CSV leídos con PapaParse y pipe `currency`. |
+| `/maqueta`  | Estructura de informe: cabecera, filtros, agrupaciones con subtotales, totales, pie. Botón de imprimir. |
+| `/datos`  | Datos **en bruto** de la API y del CSV con el pipe `json`. |
+| `/informe-pedidos`  | Tabla Material con datos de la API, ordenación (incluso en campos anidados), paginación y pipe `date`. |
+| `/informe-csv`  | Tabla con datos del CSV leídos con PapaParse y pipe `currency`. |

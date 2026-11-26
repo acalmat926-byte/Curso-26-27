@@ -8,7 +8,7 @@ import { ApiService } from '../../services/api.service';
 import { Pedido } from '../../models/models';
 
 /**
- * SESIÓN 3 · Informe tabular.
+ *  3 · Informe tabular.
  * Estructura generada con:  ng generate @angular/material:table informe-pedidos
  * y MODIFICADA para usar la API real en lugar de datos de ejemplo.
  */

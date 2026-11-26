@@ -294,24 +294,6 @@ Usar pipes para cambiar el dato a un formato deseado
 ---
 
 
-# 6 · Autoevaluación
-
-**Sesión 1 (criterio a)**
-1. ¿Qué diferencia hay entre cabecera de informe y cabecera de página?
-2. ¿Dónde colocarías el subtotal por cliente?
-3. ¿Por qué se diseña un boceto antes de programar?
-
-**Sesión 2 (criterio b)**
-4. ¿Para qué sirve `json-server`?
-5. ¿Qué hace `_expand=cliente`?
-6. ¿Por qué el acceso a datos va en un servicio y no en el componente?
-7. ¿Qué hace `header: true` en PapaParse?
-
-**Sesión 3 (criterio b)**
-8. ¿Qué es un schematic y qué genera `@angular/material:table`?
-9. ¿Por qué se asigna el paginador en `ngAfterViewInit`?
-10. ¿Qué cambia entre el informe de la API y el del CSV? ¿Qué se mantiene igual?
-
 
 ### Actividad práctica 1
 1. Busca **3 informes reales** (factura, extracto bancario, boletín de notas, informe de ventas…) e identifica en cada uno: cabecera, cuerpo, agrupaciones, pie, totales.

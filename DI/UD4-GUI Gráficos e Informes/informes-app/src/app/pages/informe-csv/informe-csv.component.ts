@@ -6,7 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CsvService } from '../../services/csv.service';
 
 /**
- * SESIÓN 3 · Segundo informe, ahora con una fuente distinta (archivo CSV
+ * Segundo informe, ahora con una fuente distinta (archivo CSV
  * leído con PapaParse a través de CsvService).
  */
 @Component({

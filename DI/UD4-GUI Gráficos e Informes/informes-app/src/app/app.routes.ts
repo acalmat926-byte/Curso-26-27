@@ -6,8 +6,8 @@ import { InformeCsvComponent } from './pages/informe-csv/informe-csv.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'maqueta', pathMatch: 'full' },
-  { path: 'maqueta', component: MaquetaInformeComponent },          // Sesión 1
-  { path: 'datos', component: DatosBrutoComponent },                // Sesión 2
-  { path: 'informe-pedidos', component: InformePedidosComponent },  // Sesión 3 (API)
-  { path: 'informe-csv', component: InformeCsvComponent }           // Sesión 3 (CSV)
+  { path: 'maqueta', component: MaquetaInformeComponent },          
+  { path: 'datos', component: DatosBrutoComponent },                
+  { path: 'informe-pedidos', component: InformePedidosComponent },  
+  { path: 'informe-csv', component: InformeCsvComponent }           
 ];
