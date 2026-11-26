@@ -6,7 +6,7 @@ import { ApiService } from '../../services/api.service';
 import { CsvService } from '../../services/csv.service';
 
 /**
- * SESIÓN 2 · Mostrar los datos "en bruto" tal y como llegan
+ * Mostrar los datos "en bruto" tal y como llegan
  * desde la API (json-server) y desde el CSV.
  */
 @Component({
@@ -33,10 +33,7 @@ import { CsvService } from '../../services/csv.service';
       </mat-card>
     </div>
   `,
-  styles: [`
-    mat-card { margin-bottom: 16px; }
-    pre { max-height: 220px; overflow: auto; font-size: 12px; background: #f6f6f6; padding: 8px; }
-  `]
+  
 })
 export class DatosBrutoComponent {
   private api = inject(ApiService);
