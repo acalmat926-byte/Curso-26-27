@@ -98,6 +98,14 @@
 
       <h2 class="topic-heading">🧩 Signals</h2>
       <article class="lesson-card"><a class="lesson-link" href="https://angular.dev/tutorials/signals" target="_blank" rel="noopener noreferrer">🔗 Signals</a></article>
+      <div class="defer-notes">
+          <p><strong>update</strong>: Modifica el valor de una señal escribible calculando el nuevo estado a partir de su valor anterior.</p>
+          <p><strong>set</strong>: Sustituye directamente el valor de una señal escribible por uno nuevo sin depender del valor anterior.</p>
+
+          <p><strong>computed</strong>: Define una señal derivada y de solo lectura que recalcula y memoriza su valor automáticamente cuando cambian las señales de las que depende.</p>
+          <p><strong>linkedSignal</strong>: Crea una señal escribible que se reinicia o ajusta automáticamente cuando cambia otra señal fuente, pero que también permite sobrescribirse manualmente.</p>
+          <p><strong>effect</strong>: Ejecuta una acción secundaria automáticamente cada vez que cambia alguna señal leída dentro de ella.</p>
+        </div>
     </div>
   </main>
 </body>
