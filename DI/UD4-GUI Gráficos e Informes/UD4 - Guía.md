@@ -164,8 +164,7 @@ export class DatosBrutoComponent {
 
 | Concepto | Explicación |
 |---|---|
-| **Observable** | Representa datos que llegarán **más tarde** (la respuesta HTTP es asíncrona). Hasta que alguien se suscribe, no se hace la petición. |
-| **`subscribe()`** | Forma clásica de recibir el resultado: `api.getClientes().subscribe(datos => ...)` |
+| **Observable** | Representa datos que llegarán **más tarde** (la respuesta HTTP es asíncrona). Hasta que alguien se suscribe, no se hace la petición. 
 | **`toSignal()`** | Convierte un Observable en una *signal*; en la plantilla se lee como `clientes()`. Evita suscribirse a mano. |
 | **Interfaz (`interface`)** | Define la forma de los datos (`Cliente`, `Pedido`). TypeScript avisa si te equivocas de campo. |
 | **`inject()`** | Pide a Angular una instancia de un servicio. |

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild, inject } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, effect, inject } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
@@ -6,6 +6,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
 import { ApiService } from '../../services/api.service';
 import { Pedido } from '../../models/models';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 /**
  *  3 · Informe tabular.
@@ -28,6 +29,14 @@ export class InformePedidosComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  pedidos  = toSignal(this.api.getPedidos(),  { initialValue: [] });
+
+  constructor() {
+    effect(() => {
+      this.dataSource.data = this.pedidos();
+    });
+  }
+
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -40,7 +49,5 @@ export class InformePedidosComponent implements AfterViewInit {
         default:         return (p as any)[columna];
       }
     };
-
-    this.api.getPedidos().subscribe(datos => (this.dataSource.data = datos));
   }
 }
