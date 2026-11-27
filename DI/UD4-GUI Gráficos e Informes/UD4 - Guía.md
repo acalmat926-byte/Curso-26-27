@@ -288,33 +288,4 @@ Usar pipes para cambiar el dato a un formato deseado
 5. **Inyectar** el servicio y cargar los datos reales.
 6. **Ajustar** columnas, cabeceras y formatos.
 7. **Comprobar** ordenación y paginación.
-
-
-
 ---
-
-
-
-### Actividad práctica 1
-1. Busca **3 informes reales** (factura, extracto bancario, boletín de notas, informe de ventas…) e identifica en cada uno: cabecera, cuerpo, agrupaciones, pie, totales.
-2. Dibuja en papel o Figma un informe de **Ventas** con esas partes.
-3. Crea tu proyecto Angular y reproduce la maqueta (o parte de la del proyecto base) con tu propio diseño.
-
-
-### Actividad práctica 2
-1. Arranca la API con `npm run api` y prueba en el navegador `/clientes`, `/pedidos` y `/pedidos?_expand=cliente`.
-2. Crea un servicio con `ng generate service services/api` y añade `getClientes()`, `getProductos()` y `getPedidos()`.
-3. Muestra los tres resultados en bruto con el pipe `json`.
-4. Crea un `CsvService` que lea `ventas.csv` con PapaParse y muéstralo también en bruto.
-5. **Ampliación:** añade 2 clientes nuevos a `db.json` y comprueba que aparecen sin reiniciar nada.
-
-
-
-
-### Actividad práctica 3
-1. Genera `informe-pedidos` con el asistente `table` y registra su ruta.
-2. Conéctalo a la API. Columnas: Nº, Fecha, Cliente, Producto, Cantidad, Estado.
-3. Comprueba que ordenar por **Cliente** y **Producto** funciona y que la fecha sale `dd/MM/yyyy`.
-4. Genera `informe-csv` y muéstralo con las columnas del CSV; el importe debe salir con formato moneda.
-5. Genera también un `dashboard` (`ng generate @angular/material:dashboard panel`) y observa su estructura. *No hace falta rellenarlo todavía: se usará en la sesión 8.*
-6. **Entrega:** capturas de ambos informes y repositorio con un commit por sesión.
